@@ -1,0 +1,5 @@
+date,client,produit,quantite,prix_unitaire,cout_unitaire,region
+2031-01-15,Client test rouge,Produit test,1,5000.00,3000.00,Casablanca
+2031-02-15,Client test rouge,Produit test,1,5000.00,3000.00,Casablanca
+2031-03-15,Client test rouge,Produit test,1,5000.00,3000.00,Casablanca
+2031-04-15,Client test rouge,Produit test,1,4000.00,2400.00,Casablanca

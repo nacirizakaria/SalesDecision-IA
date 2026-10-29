@@ -1,0 +1,88 @@
+{% load sales_format static %}
+<!doctype html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8">
+    <style>
+        @page { size: A4 landscape; margin: 8mm; background: #eef0f5; }
+        * { box-sizing: border-box; }
+        body { margin: 0; padding: 0 14px 8px; color: #12131a; background: #ffffff; border: 1px solid #e4e6ed; border-radius: 10px; font-family: "Inter", Helvetica, Arial, sans-serif; font-size: 9.5pt; }
+        p, h1, h2 { margin: 0; }
+        .report-header { margin: -1px -15px 0; padding: 11px 16px; background: #12131a; color: #ffffff; border-radius: 10px 10px 0 0; }
+        .brand-row { display: table; width: 100%; }
+        .brand, .report-date { display: table-cell; vertical-align: top; }
+        .report-date { color: #a7abbb; font-family: "IBM Plex Mono", Consolas, monospace; font-size: 7.5pt; line-height: 1.55; text-align: right; }
+        .brand-mark { display: inline-block; width: 28px; height: 24px; margin-right: 9px; vertical-align: middle; }
+        .brand-mark img { display: block; width: 28px; height: 24px; object-fit: contain; }
+        .brand-name { font-family: "Manrope", Helvetica, sans-serif; font-size: 14pt; font-weight: 800; vertical-align: middle; }
+        .brand-subtitle { margin: 3px 0 0 34px; color: #a7abbb; font-size: 7pt; }
+        .title-row { display: table; width: 100%; margin-top: 9px; padding: 0 2px; }
+        .title, .period { display: table-cell; vertical-align: bottom; }
+        .title h1 { color: #12131a; font-family: "Manrope", Helvetica, sans-serif; font-size: 17pt; font-weight: 800; letter-spacing: -0.4px; }
+        .title p { margin-top: 3px; color: #6b6f80; font-size: 8pt; }
+        .period { color: #a7abbb; font-size: 7pt; letter-spacing: .3px; text-align: right; text-transform: uppercase; }
+        .period strong { display: block; margin-top: 3px; color: #12131a; font-family: "IBM Plex Mono", Consolas, monospace; font-size: 8.5pt; letter-spacing: 0; text-transform: none; }
+        .filter-summary { margin-top: 7px; padding: 6px 10px; border-left: 3px solid #3454d1; border-radius: 0 7px 7px 0; background: #eef1fc; color: #4f5670; font-size: 7.5pt; }
+        .section-label { margin: 8px 0 4px; color: #6b6f80; font-size: 7pt; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; }
+        .kpi-table, .analysis-table { width: 100%; border-collapse: separate; border-spacing: 5px; margin: 0 -5px; }
+        .kpi-table td { width: 16.66%; vertical-align: top; }
+        .kpi-card { height: 68px; padding: 7px 9px; overflow: hidden; border: 1px solid #e4e6ed; border-top: 3px solid #3454d1; border-radius: 8px; background: #ffffff; }
+        .kpi-table td:nth-child(2) .kpi-card { border-top-color: #7c5cfc; }
+        .kpi-table td:nth-child(3) .kpi-card { border-top-color: #0e9f9f; }
+        .kpi-table td:nth-child(4) .kpi-card { border-top-color: #b45309; }
+        .kpi-table td:nth-child(5) .kpi-card { border-top-color: #c4487a; }
+        .kpi-table td:nth-child(6) .kpi-card { border-top-color: #0e9f6e; }
+        .kpi-title { color: #6b6f80; font-size: 7pt; font-weight: 600; }
+        .kpi-value { margin-top: 5px; color: #12131a; font-family: "IBM Plex Mono", Consolas, monospace; font-size: 11.5pt; font-weight: 700; font-variant-numeric: tabular-nums; letter-spacing: -0.35px; }
+        .kpi-value.kpi-text { font-family: "Manrope", Helvetica, sans-serif; font-size: 9.5pt; letter-spacing: -0.2px; }
+        .kpi-note { margin-top: 2px; color: #6b6f80; font-family: "IBM Plex Mono", Consolas, monospace; font-size: 6pt; }
+        .positive { color: #0e9f6e; }
+        .negative { color: #c0392b; }
+        .analysis-table { margin-top: 0; }
+        .analysis-table td { width: 50%; vertical-align: top; }
+        .analysis-table, .analysis-table tr, .analysis-table td, .analysis-card { break-inside: avoid; page-break-inside: avoid; }
+        .analysis-card { height: 176pt; padding: 8px; overflow: hidden; border: 1px solid #e4e6ed; border-radius: 9px; background: #ffffff; }
+        .analysis-heading { padding: 1px 0 5px 8px; border-bottom: 1px solid #e4e6ed; }
+        .analysis-heading h2 { color: #12131a; font-family: "Manrope", Helvetica, sans-serif; font-size: 10.5pt; font-weight: 700; }
+        .analysis-heading p { margin-top: 2px; color: #6b6f80; font-size: 7pt; }
+        .accent-blue { border-left: 3px solid #3454d1; }
+        .accent-green { border-left: 3px solid #0e9f6e; }
+        .chart { margin-top: 3px; }
+        .chart svg { display: block; width: 100%; height: 142pt; }
+        .footer { margin-top: 6px; padding-top: 5px; border-top: 1px solid #e4e6ed; color: #a7abbb; font-size: 6.5pt; }
+    </style>
+</head>
+<body>
+    <header class="report-header">
+        <div class="brand-row">
+            <div class="brand"><span class="brand-mark"><img src="{{ logo_data_uri|default:'' }}" alt=""></span><span class="brand-name">SalesDecision AI</span><p class="brand-subtitle">Rapport de pilotage commercial</p></div>
+            <div class="report-date">Document confidentiel<br>Généré le {% now "d/m/Y à H:i" %}</div>
+        </div>
+    </header>
+
+    <div class="title-row">
+        <div class="title"><h1>Tableau de bord commercial</h1><p>Vue de synthèse des résultats, tendances et répartitions.</p></div>
+        <div class="period">Période analysée<br><strong>{{ filtres_actifs.date_debut|default:"Début des données" }} — {{ filtres_actifs.date_fin|default:"Aujourd’hui" }}</strong></div>
+    </div>
+    <div class="filter-summary">Filtres appliqués : {{ filtres_actifs.produits|length }} produit(s) et {{ filtres_actifs.clients|length }} client(s) sélectionné(s).</div>
+
+    <p class="section-label">Indicateurs clés</p>
+    <table class="kpi-table">
+        <tr>
+            <td><div class="kpi-card"><p class="kpi-title">Chiffre d’affaires</p><p class="kpi-value">{{ kpis.ca_total|nombre_fr }} DH</p><p class="kpi-note {% if kpis.evolution >= 0 %}positive{% else %}negative{% endif %}">{% if kpis.evolution is not None %}{% if kpis.evolution >= 0 %}+{% endif %}{{ kpis.evolution }} % vs. mois précédent{% endif %}</p></div></td>
+            <td><div class="kpi-card"><p class="kpi-title">Marge totale</p><p class="kpi-value">{{ kpis.marge_totale|nombre_fr }} DH</p></div></td>
+            <td><div class="kpi-card"><p class="kpi-title">Volume vendu</p><p class="kpi-value">{{ kpis.quantite_totale }}</p><p class="kpi-note">{% if kpis.evolution_volume is not None %}{% if kpis.evolution_volume >= 0 %}+{% endif %}{{ kpis.evolution_volume }} % vs. mois précédent{% endif %}</p></div></td>
+            <td><div class="kpi-card"><p class="kpi-title">Panier moyen</p><p class="kpi-value">{{ kpis.panier_moyen|nombre_fr }} DH</p></div></td>
+            <td><div class="kpi-card"><p class="kpi-title">Meilleur produit</p><p class="kpi-value kpi-text">{% if kpis.produit_top %}{{ kpis.produit_top.produit }}{% else %}—{% endif %}</p></div></td>
+            <td><div class="kpi-card"><p class="kpi-title">Meilleure région</p><p class="kpi-value kpi-text">{% if kpis.region_top %}{{ kpis.region_top.region }}{% else %}—{% endif %}</p></div></td>
+        </tr>
+    </table>
+
+    <p class="section-label">Analyses visuelles</p>
+    <table class="analysis-table"><tr>
+        <td><section class="analysis-card"><div class="analysis-heading accent-blue"><h2>{{ titre_performance }}</h2><p>Évolution de l’activité commerciale sur la période.</p></div><div class="chart">{{ graphique_performance }}</div></section></td>
+        <td><section class="analysis-card"><div class="analysis-heading accent-green"><h2>{{ titre_repartition }}</h2><p>Répartition du chiffre d’affaires selon la dimension choisie.</p></div><div class="chart">{{ graphique_repartition }}</div></section></td>
+    </tr></table>
+    <footer class="footer">SalesDecision AI · Rapport préparé à partir des filtres actifs du tableau de bord.</footer>
+</body>
+</html>

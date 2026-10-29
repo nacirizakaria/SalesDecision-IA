@@ -1,0 +1,2402 @@
+[
+  {
+    "id": 1,
+    "theme": "chiffre_affaires",
+    "question": "Quel est le chiffre d'affaires total ce mois-ci ?",
+    "answer_mode": "calculate_from_database",
+    "current_intent": "get_kpi",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 2,
+    "theme": "chiffre_affaires",
+    "question": "Quel est le chiffre d'affaires de l'année en cours ?",
+    "answer_mode": "calculate_from_database",
+    "current_intent": "get_kpi",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 3,
+    "theme": "chiffre_affaires",
+    "question": "Quelle est l'évolution du chiffre d'affaires par rapport au mois dernier ?",
+    "answer_mode": "calculate_from_database",
+    "current_intent": "compare_periods",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 4,
+    "theme": "chiffre_affaires",
+    "question": "Quel est le chiffre d'affaires par région ?",
+    "answer_mode": "calculate_from_database",
+    "current_intent": "get_kpi",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 5,
+    "theme": "chiffre_affaires",
+    "question": "Quel est le chiffre d'affaires par client ?",
+    "answer_mode": "calculate_from_database",
+    "current_intent": "get_kpi",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 6,
+    "theme": "chiffre_affaires",
+    "question": "Quel est le chiffre d'affaires par produit ?",
+    "answer_mode": "calculate_from_database",
+    "current_intent": "get_kpi",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 7,
+    "theme": "chiffre_affaires",
+    "question": "Quel a été le chiffre d'affaires du trimestre dernier ?",
+    "answer_mode": "calculate_from_database",
+    "current_intent": "get_kpi",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 8,
+    "theme": "chiffre_affaires",
+    "question": "Compare le chiffre d'affaires de cette année avec l'année précédente.",
+    "answer_mode": "calculate_from_database",
+    "current_intent": "compare_periods",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 9,
+    "theme": "chiffre_affaires",
+    "question": "Quel produit génère le plus de chiffre d'affaires ?",
+    "answer_mode": "calculate_from_database",
+    "current_intent": "rank_products",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 10,
+    "theme": "chiffre_affaires",
+    "question": "Quel client génère le plus de chiffre d'affaires ?",
+    "answer_mode": "calculate_from_database",
+    "current_intent": "rank_clients",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 11,
+    "theme": "chiffre_affaires",
+    "question": "Quelle région a le chiffre d'affaires le plus faible ?",
+    "answer_mode": "calculate_from_database",
+    "current_intent": "rank_regions",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 12,
+    "theme": "chiffre_affaires",
+    "question": "Quelle est la tendance du chiffre d'affaires sur les 6 derniers mois ?",
+    "answer_mode": "calculate_from_database",
+    "current_intent": "get_kpi",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 13,
+    "theme": "chiffre_affaires",
+    "question": "Le chiffre d'affaires a-t-il baissé ce mois-ci ?",
+    "answer_mode": "calculate_from_database",
+    "current_intent": "detect_anomalies",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 14,
+    "theme": "chiffre_affaires",
+    "question": "Quel est le taux de croissance du chiffre d'affaires ?",
+    "answer_mode": "calculate_from_database",
+    "current_intent": "get_kpi",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 15,
+    "theme": "chiffre_affaires",
+    "question": "Quel est le chiffre d'affaires cumulé depuis le début de l'année ?",
+    "answer_mode": "calculate_from_database",
+    "current_intent": "get_kpi",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 16,
+    "theme": "chiffre_affaires",
+    "question": "Quelle est la part du chiffre d'affaires réalisée par les 10 meilleurs clients ?",
+    "answer_mode": "calculate_from_database",
+    "current_intent": "rank_clients",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 17,
+    "theme": "chiffre_affaires",
+    "question": "Quel est le chiffre d'affaires moyen par commande ?",
+    "answer_mode": "calculate_from_database",
+    "current_intent": "get_kpi",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 18,
+    "theme": "chiffre_affaires",
+    "question": "Quel est le chiffre d'affaires par catégorie de produit ?",
+    "answer_mode": "calculate_from_database",
+    "current_intent": "get_kpi",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 19,
+    "theme": "chiffre_affaires",
+    "question": "Montre-moi l'évolution mensuelle du chiffre d'affaires sous forme de graphique.",
+    "answer_mode": "calculate_from_database",
+    "current_intent": "get_kpi",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 20,
+    "theme": "chiffre_affaires",
+    "question": "Quels sont les 5 mois où le chiffre d'affaires a été le plus élevé ?",
+    "answer_mode": "calculate_from_database",
+    "current_intent": "rank_products",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 21,
+    "theme": "marge_rentabilite",
+    "question": "Quelle est la marge globale de l'entreprise ?",
+    "answer_mode": "calculate_from_database",
+    "current_intent": "get_kpi",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 22,
+    "theme": "marge_rentabilite",
+    "question": "Quelle est la marge par produit ?",
+    "answer_mode": "calculate_from_database",
+    "current_intent": "get_kpi",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 23,
+    "theme": "marge_rentabilite",
+    "question": "Quel produit a la marge la plus faible ?",
+    "answer_mode": "calculate_from_database",
+    "current_intent": "analyze_product",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 24,
+    "theme": "marge_rentabilite",
+    "question": "Quel produit a la marge la plus élevée ?",
+    "answer_mode": "calculate_from_database",
+    "current_intent": "analyze_product",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 25,
+    "theme": "marge_rentabilite",
+    "question": "Quelle est la marge par client ?",
+    "answer_mode": "calculate_from_database",
+    "current_intent": "get_kpi",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 26,
+    "theme": "marge_rentabilite",
+    "question": "Quelle est la marge par région ?",
+    "answer_mode": "calculate_from_database",
+    "current_intent": "get_kpi",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 27,
+    "theme": "marge_rentabilite",
+    "question": "La marge a-t-elle baissé par rapport au mois dernier ?",
+    "answer_mode": "calculate_from_database",
+    "current_intent": "detect_anomalies",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 28,
+    "theme": "marge_rentabilite",
+    "question": "Quel est le taux de marge moyen ce trimestre ?",
+    "answer_mode": "calculate_from_database",
+    "current_intent": "get_kpi",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 29,
+    "theme": "marge_rentabilite",
+    "question": "Y a-t-il des produits vendus à perte ?",
+    "answer_mode": "calculate_from_database",
+    "current_intent": "get_kpi",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 30,
+    "theme": "marge_rentabilite",
+    "question": "Quels clients génèrent le plus de marge malgré un faible chiffre d'affaires ?",
+    "answer_mode": "calculate_from_database",
+    "current_intent": "rank_clients",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 31,
+    "theme": "marge_rentabilite",
+    "question": "Quelle est l'évolution de la marge sur les 12 derniers mois ?",
+    "answer_mode": "calculate_from_database",
+    "current_intent": "get_kpi",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 32,
+    "theme": "marge_rentabilite",
+    "question": "Quel est l'impact des coûts sur la marge globale ?",
+    "answer_mode": "calculate_from_database",
+    "current_intent": "get_kpi",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 33,
+    "theme": "marge_rentabilite",
+    "question": "Quels sont les produits à marge insuffisante ce mois-ci ?",
+    "answer_mode": "calculate_from_database",
+    "current_intent": "get_kpi",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 34,
+    "theme": "marge_rentabilite",
+    "question": "Quelle est la différence entre marge brute et marge nette dans mes données ?",
+    "answer_mode": "calculate_from_database",
+    "current_intent": "get_kpi",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 35,
+    "theme": "marge_rentabilite",
+    "question": "Quels segments de clients ont la meilleure rentabilité ?",
+    "answer_mode": "calculate_from_database",
+    "current_intent": "rank_clients",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 36,
+    "theme": "marge_rentabilite",
+    "question": "Pourquoi la marge a-t-elle chuté ce mois-ci ?",
+    "answer_mode": "calculate_from_database",
+    "current_intent": "get_kpi",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 37,
+    "theme": "marge_rentabilite",
+    "question": "Quelle région a la meilleure rentabilité ?",
+    "answer_mode": "calculate_from_database",
+    "current_intent": "rank_regions",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 38,
+    "theme": "marge_rentabilite",
+    "question": "Quel est le seuil de marge en dessous duquel une alerte doit se déclencher ?",
+    "answer_mode": "calculate_from_database",
+    "current_intent": "get_kpi",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 39,
+    "theme": "marge_rentabilite",
+    "question": "Quels produits ont une marge en baisse constante depuis 3 mois ?",
+    "answer_mode": "calculate_from_database",
+    "current_intent": "detect_anomalies",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 40,
+    "theme": "marge_rentabilite",
+    "question": "Recommande des actions pour améliorer la marge globale.",
+    "answer_mode": "calculate_from_database",
+    "current_intent": "get_recommendations",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 41,
+    "theme": "volume_panier",
+    "question": "Quel est le volume total des ventes ce mois-ci ?",
+    "answer_mode": "calculate_from_database",
+    "current_intent": "get_kpi",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 42,
+    "theme": "volume_panier",
+    "question": "Quel est le panier moyen actuel ?",
+    "answer_mode": "calculate_from_database",
+    "current_intent": "get_kpi",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 43,
+    "theme": "volume_panier",
+    "question": "Comment évolue le panier moyen dans le temps ?",
+    "answer_mode": "calculate_from_database",
+    "current_intent": "get_kpi",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 44,
+    "theme": "volume_panier",
+    "question": "Quel client a le panier moyen le plus élevé ?",
+    "answer_mode": "calculate_from_database",
+    "current_intent": "rank_clients",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 45,
+    "theme": "volume_panier",
+    "question": "Quel produit est le plus vendu en volume ?",
+    "answer_mode": "calculate_from_database",
+    "current_intent": "rank_products",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 46,
+    "theme": "volume_panier",
+    "question": "Quelle est la quantité totale vendue par région ?",
+    "answer_mode": "calculate_from_database",
+    "current_intent": "get_kpi",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 47,
+    "theme": "volume_panier",
+    "question": "Quel est le volume de vente par catégorie de produit ?",
+    "answer_mode": "calculate_from_database",
+    "current_intent": "get_kpi",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 48,
+    "theme": "volume_panier",
+    "question": "Le volume des ventes a-t-il augmenté ce trimestre ?",
+    "answer_mode": "calculate_from_database",
+    "current_intent": "get_kpi",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 49,
+    "theme": "volume_panier",
+    "question": "Quel est le nombre total de commandes ce mois-ci ?",
+    "answer_mode": "calculate_from_database",
+    "current_intent": "clarification",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 50,
+    "theme": "volume_panier",
+    "question": "Quelle est la fréquence d'achat moyenne des clients ?",
+    "answer_mode": "calculate_from_database",
+    "current_intent": "clarification",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 51,
+    "theme": "volume_panier",
+    "question": "Quels sont les produits les plus vendus sur les 3 derniers mois ?",
+    "answer_mode": "calculate_from_database",
+    "current_intent": "get_kpi",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 52,
+    "theme": "volume_panier",
+    "question": "Quel est le produit le moins vendu ?",
+    "answer_mode": "calculate_from_database",
+    "current_intent": "get_kpi",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 53,
+    "theme": "volume_panier",
+    "question": "Quelle est l'évolution du volume de ventes par région sur l'année ?",
+    "answer_mode": "calculate_from_database",
+    "current_intent": "get_kpi",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 54,
+    "theme": "volume_panier",
+    "question": "Quel est le panier moyen par région ?",
+    "answer_mode": "calculate_from_database",
+    "current_intent": "get_kpi",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 55,
+    "theme": "volume_panier",
+    "question": "Combien de nouvelles commandes ont été enregistrées cette semaine ?",
+    "answer_mode": "calculate_from_database",
+    "current_intent": "clarification",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 56,
+    "theme": "clients",
+    "question": "Quels sont mes 10 meilleurs clients ?",
+    "answer_mode": "calculate_from_database",
+    "current_intent": "rank_clients",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 57,
+    "theme": "clients",
+    "question": "Quels clients ont le plus baissé leurs achats ce trimestre ?",
+    "answer_mode": "calculate_from_database",
+    "current_intent": "detect_anomalies",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 58,
+    "theme": "clients",
+    "question": "Quel client représente le plus grand risque de dépendance commerciale ?",
+    "answer_mode": "calculate_from_database",
+    "current_intent": "detect_anomalies",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 59,
+    "theme": "clients",
+    "question": "Quels clients n'ont passé aucune commande depuis 3 mois ?",
+    "answer_mode": "calculate_from_database",
+    "current_intent": "clarification",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 60,
+    "theme": "clients",
+    "question": "Quelle est la répartition du chiffre d'affaires par client ?",
+    "answer_mode": "calculate_from_database",
+    "current_intent": "get_kpi",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 61,
+    "theme": "clients",
+    "question": "Quel est le taux de rétention des clients ?",
+    "answer_mode": "calculate_from_database",
+    "current_intent": "clarification",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 62,
+    "theme": "clients",
+    "question": "Quels clients ont augmenté leurs achats de plus de 20 % ?",
+    "answer_mode": "calculate_from_database",
+    "current_intent": "rank_clients",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 63,
+    "theme": "clients",
+    "question": "Y a-t-il une trop forte dépendance envers un seul client ?",
+    "answer_mode": "calculate_from_database",
+    "current_intent": "clarification",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 64,
+    "theme": "clients",
+    "question": "Quel est le client le plus rentable ?",
+    "answer_mode": "calculate_from_database",
+    "current_intent": "rank_clients",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 65,
+    "theme": "clients",
+    "question": "Quel est le client le moins rentable malgré un fort volume d'achats ?",
+    "answer_mode": "calculate_from_database",
+    "current_intent": "get_kpi",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 66,
+    "theme": "clients",
+    "question": "Combien de clients actifs avons-nous ce mois-ci ?",
+    "answer_mode": "calculate_from_database",
+    "current_intent": "clarification",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 67,
+    "theme": "clients",
+    "question": "Quels clients présentent un risque de churn ?",
+    "answer_mode": "calculate_from_database",
+    "current_intent": "detect_anomalies",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 68,
+    "theme": "clients",
+    "question": "Quelle est la valeur moyenne d'un client sur l'année ?",
+    "answer_mode": "calculate_from_database",
+    "current_intent": "clarification",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 69,
+    "theme": "clients",
+    "question": "Quels nouveaux clients avons-nous acquis ce mois-ci ?",
+    "answer_mode": "calculate_from_database",
+    "current_intent": "clarification",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 70,
+    "theme": "clients",
+    "question": "Quel segment de clients est le plus profitable ?",
+    "answer_mode": "calculate_from_database",
+    "current_intent": "rank_clients",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 71,
+    "theme": "clients",
+    "question": "Compare les performances du client X et du client Y.",
+    "answer_mode": "calculate_from_database",
+    "current_intent": "compare_clients",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 72,
+    "theme": "clients",
+    "question": "Quels clients achètent régulièrement mais avec une marge faible ?",
+    "answer_mode": "calculate_from_database",
+    "current_intent": "get_kpi",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 73,
+    "theme": "clients",
+    "question": "Quelle proportion du chiffre d'affaires dépend de nos 3 plus gros clients ?",
+    "answer_mode": "calculate_from_database",
+    "current_intent": "get_kpi",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 74,
+    "theme": "clients",
+    "question": "Quels clients ont un panier moyen en baisse ?",
+    "answer_mode": "calculate_from_database",
+    "current_intent": "detect_anomalies",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 75,
+    "theme": "clients",
+    "question": "Recommande une action pour réduire la dépendance envers le client X.",
+    "answer_mode": "calculate_from_database",
+    "current_intent": "get_recommendations",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 76,
+    "theme": "produits",
+    "question": "Quels sont les produits les plus rentables ?",
+    "answer_mode": "calculate_from_database",
+    "current_intent": "rank_products",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 77,
+    "theme": "produits",
+    "question": "Quels produits ont vu leurs ventes chuter ce mois-ci ?",
+    "answer_mode": "calculate_from_database",
+    "current_intent": "clarification",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 78,
+    "theme": "produits",
+    "question": "Quel produit a la plus forte croissance ?",
+    "answer_mode": "calculate_from_database",
+    "current_intent": "analyze_product",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 79,
+    "theme": "produits",
+    "question": "Quel produit a la plus forte décroissance ?",
+    "answer_mode": "calculate_from_database",
+    "current_intent": "analyze_product",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 80,
+    "theme": "produits",
+    "question": "Quels produits sont en fin de cycle de vie (ventes en baisse continue) ?",
+    "answer_mode": "calculate_from_database",
+    "current_intent": "detect_anomalies",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 81,
+    "theme": "produits",
+    "question": "Quelle est la contribution de chaque produit au chiffre d'affaires total ?",
+    "answer_mode": "calculate_from_database",
+    "current_intent": "get_kpi",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 82,
+    "theme": "produits",
+    "question": "Quels produits ont une croissance forte mais peu rentable ?",
+    "answer_mode": "calculate_from_database",
+    "current_intent": "clarification",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 83,
+    "theme": "produits",
+    "question": "Quel est le produit avec le meilleur ratio marge/volume ?",
+    "answer_mode": "calculate_from_database",
+    "current_intent": "rank_products",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 84,
+    "theme": "produits",
+    "question": "Quels produits devraient être retirés du catalogue selon les données ?",
+    "answer_mode": "calculate_from_database",
+    "current_intent": "get_forecast",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 85,
+    "theme": "produits",
+    "question": "Quels produits ont un potentiel de croissance sous-exploité ?",
+    "answer_mode": "calculate_from_database",
+    "current_intent": "clarification",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 86,
+    "theme": "produits",
+    "question": "Compare les performances du produit A et du produit B.",
+    "answer_mode": "calculate_from_database",
+    "current_intent": "compare_products",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 87,
+    "theme": "produits",
+    "question": "Quels produits sont fortement dépendants d'une seule région ou d'un seul client ?",
+    "answer_mode": "calculate_from_database",
+    "current_intent": "clarification",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 88,
+    "theme": "produits",
+    "question": "Quelle est l'évolution des ventes du produit X sur les 12 derniers mois ?",
+    "answer_mode": "calculate_from_database",
+    "current_intent": "analyze_product",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 89,
+    "theme": "produits",
+    "question": "Quels produits ont une marge décroissante malgré une hausse du volume ?",
+    "answer_mode": "calculate_from_database",
+    "current_intent": "get_kpi",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 90,
+    "theme": "produits",
+    "question": "Recommande une stratégie de prix pour le produit X.",
+    "answer_mode": "calculate_from_database",
+    "current_intent": "get_recommendations",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 91,
+    "theme": "regions",
+    "question": "Quelle région génère le plus de chiffre d'affaires ?",
+    "answer_mode": "calculate_from_database",
+    "current_intent": "rank_regions",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 92,
+    "theme": "regions",
+    "question": "Quelle région sous-performe par rapport aux autres ?",
+    "answer_mode": "calculate_from_database",
+    "current_intent": "compare_periods",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 93,
+    "theme": "regions",
+    "question": "Quelle est la croissance par région sur l'année ?",
+    "answer_mode": "calculate_from_database",
+    "current_intent": "clarification",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 94,
+    "theme": "regions",
+    "question": "Quelle région a la meilleure marge ?",
+    "answer_mode": "calculate_from_database",
+    "current_intent": "rank_regions",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 95,
+    "theme": "regions",
+    "question": "Quelle région a le plus fort potentiel de croissance ?",
+    "answer_mode": "calculate_from_database",
+    "current_intent": "rank_regions",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 96,
+    "theme": "regions",
+    "question": "Compare les performances de la région Nord et de la région Sud.",
+    "answer_mode": "calculate_from_database",
+    "current_intent": "compare_regions",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 97,
+    "theme": "regions",
+    "question": "Quelles régions n'atteignent pas leurs objectifs de vente ?",
+    "answer_mode": "calculate_from_database",
+    "current_intent": "clarification",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 98,
+    "theme": "regions",
+    "question": "Quelle est la répartition des clients par région ?",
+    "answer_mode": "calculate_from_database",
+    "current_intent": "clarification",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 99,
+    "theme": "regions",
+    "question": "Quelle région a le taux de croissance le plus faible ce trimestre ?",
+    "answer_mode": "calculate_from_database",
+    "current_intent": "rank_regions",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 100,
+    "theme": "regions",
+    "question": "Recommande une action pour améliorer les performances de la région X.",
+    "answer_mode": "calculate_from_database",
+    "current_intent": "get_recommendations",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 101,
+    "theme": "regions",
+    "question": "Quelle est l'évolution du chiffre d'affaires par région sur 12 mois ?",
+    "answer_mode": "calculate_from_database",
+    "current_intent": "get_kpi",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 102,
+    "theme": "regions",
+    "question": "Quelles régions dépendent trop d'un seul produit ou client ?",
+    "answer_mode": "calculate_from_database",
+    "current_intent": "clarification",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 103,
+    "theme": "regions",
+    "question": "Quel est le panier moyen par région ?",
+    "answer_mode": "calculate_from_database",
+    "current_intent": "get_kpi",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 104,
+    "theme": "regions",
+    "question": "Quelle région a le plus grand nombre de nouveaux clients ce mois-ci ?",
+    "answer_mode": "calculate_from_database",
+    "current_intent": "rank_clients",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 105,
+    "theme": "regions",
+    "question": "Quelle région mérite le plus d'investissement commercial selon les données ?",
+    "answer_mode": "calculate_from_database",
+    "current_intent": "rank_regions",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 106,
+    "theme": "previsions",
+    "question": "Quelle est la prévision de chiffre d'affaires pour le mois prochain ?",
+    "answer_mode": "calculate_from_database",
+    "current_intent": "get_forecast",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 107,
+    "theme": "previsions",
+    "question": "Quelle est la prévision de vente pour le trimestre prochain ?",
+    "answer_mode": "calculate_from_database",
+    "current_intent": "get_forecast",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 108,
+    "theme": "previsions",
+    "question": "Quelle est la tendance prévue pour les 6 prochains mois ?",
+    "answer_mode": "calculate_from_database",
+    "current_intent": "get_forecast",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 109,
+    "theme": "previsions",
+    "question": "Quel est le niveau de confiance de cette prévision ?",
+    "answer_mode": "calculate_from_database",
+    "current_intent": "get_forecast",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 110,
+    "theme": "previsions",
+    "question": "La prévision indique-t-elle une croissance ou une baisse ?",
+    "answer_mode": "calculate_from_database",
+    "current_intent": "get_forecast",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 111,
+    "theme": "previsions",
+    "question": "Quelle est la prévision de chiffre d'affaires par région ?",
+    "answer_mode": "calculate_from_database",
+    "current_intent": "get_forecast",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 112,
+    "theme": "previsions",
+    "question": "Quelle est la prévision de vente pour le produit X ?",
+    "answer_mode": "calculate_from_database",
+    "current_intent": "get_forecast",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 113,
+    "theme": "previsions",
+    "question": "Quels facteurs influencent le plus la prévision actuelle ?",
+    "answer_mode": "calculate_from_database",
+    "current_intent": "get_forecast",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 114,
+    "theme": "previsions",
+    "question": "Quelle est la marge d'erreur de la prévision ?",
+    "answer_mode": "calculate_from_database",
+    "current_intent": "get_forecast",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 115,
+    "theme": "previsions",
+    "question": "Quelle est la prévision de chiffre d'affaires pour la fin de l'année ?",
+    "answer_mode": "calculate_from_database",
+    "current_intent": "get_forecast",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 116,
+    "theme": "previsions",
+    "question": "Comment la prévision a-t-elle évolué par rapport au mois dernier ?",
+    "answer_mode": "calculate_from_database",
+    "current_intent": "compare_actual_forecast",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 117,
+    "theme": "previsions",
+    "question": "Quelle est la prévision de volume de ventes pour le prochain trimestre ?",
+    "answer_mode": "calculate_from_database",
+    "current_intent": "get_forecast",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 118,
+    "theme": "previsions",
+    "question": "La prévision tient-elle compte de la saisonnalité ?",
+    "answer_mode": "calculate_from_database",
+    "current_intent": "get_forecast",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 119,
+    "theme": "previsions",
+    "question": "Quels scénarios (optimiste, pessimiste, réaliste) sont envisagés dans la prévision ?",
+    "answer_mode": "calculate_from_database",
+    "current_intent": "get_forecast",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 120,
+    "theme": "previsions",
+    "question": "Quelle est la fiabilité historique de nos prévisions passées ?",
+    "answer_mode": "calculate_from_database",
+    "current_intent": "get_forecast",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 121,
+    "theme": "alertes",
+    "question": "Quelles alertes sont actives actuellement ?",
+    "answer_mode": "calculate_from_database",
+    "current_intent": "clarification",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 122,
+    "theme": "alertes",
+    "question": "Configure une alerte si le chiffre d'affaires baisse de plus de 10 %.",
+    "answer_mode": "alert_management",
+    "current_intent": "detect_anomalies",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 123,
+    "theme": "alertes",
+    "question": "Configure une alerte si la marge d'un produit passe sous 5 %.",
+    "answer_mode": "alert_management",
+    "current_intent": "get_kpi",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 124,
+    "theme": "alertes",
+    "question": "Configure une alerte en cas de dépendance excessive envers un client.",
+    "answer_mode": "alert_management",
+    "current_intent": "clarification",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 125,
+    "theme": "alertes",
+    "question": "Quelles alertes ont été déclenchées ce mois-ci ?",
+    "answer_mode": "alert_management",
+    "current_intent": "clarification",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 126,
+    "theme": "alertes",
+    "question": "Pourquoi cette alerte a-t-elle été déclenchée ?",
+    "answer_mode": "alert_management",
+    "current_intent": "clarification",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 127,
+    "theme": "alertes",
+    "question": "Quel est le niveau de priorité de cette alerte ?",
+    "answer_mode": "alert_management",
+    "current_intent": "clarification",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 128,
+    "theme": "alertes",
+    "question": "Comment modifier le seuil d'une alerte existante ?",
+    "answer_mode": "alert_management",
+    "current_intent": "clarification",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 129,
+    "theme": "alertes",
+    "question": "Configure une alerte pour une sous-performance régionale.",
+    "answer_mode": "alert_management",
+    "current_intent": "clarification",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 130,
+    "theme": "alertes",
+    "question": "Configure une alerte en cas de croissance non rentable.",
+    "answer_mode": "alert_management",
+    "current_intent": "clarification",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 131,
+    "theme": "alertes",
+    "question": "Liste toutes les alertes de priorité haute.",
+    "answer_mode": "alert_management",
+    "current_intent": "clarification",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 132,
+    "theme": "alertes",
+    "question": "Désactive l'alerte concernant le produit X.",
+    "answer_mode": "alert_management",
+    "current_intent": "analyze_product",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 133,
+    "theme": "alertes",
+    "question": "Quelles alertes récurrentes reviennent chaque mois ?",
+    "answer_mode": "alert_management",
+    "current_intent": "clarification",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 134,
+    "theme": "alertes",
+    "question": "Configure une notification par email en cas d'alerte critique.",
+    "answer_mode": "alert_management",
+    "current_intent": "clarification",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 135,
+    "theme": "alertes",
+    "question": "Quelles sont les alertes liées aux clients à risque de churn ?",
+    "answer_mode": "alert_management",
+    "current_intent": "detect_anomalies",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 136,
+    "theme": "recommandations",
+    "question": "Quelles sont les recommandations prioritaires ce mois-ci ?",
+    "answer_mode": "calculate_from_database",
+    "current_intent": "get_recommendations",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 137,
+    "theme": "recommandations",
+    "question": "Pourquoi cette recommandation a-t-elle été générée ?",
+    "answer_mode": "calculate_from_database",
+    "current_intent": "get_recommendations",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 138,
+    "theme": "recommandations",
+    "question": "Quel est le niveau de priorité de cette recommandation ?",
+    "answer_mode": "calculate_from_database",
+    "current_intent": "get_recommendations",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 139,
+    "theme": "recommandations",
+    "question": "Quelle action concrète proposes-tu pour améliorer les ventes ?",
+    "answer_mode": "calculate_from_database",
+    "current_intent": "get_recommendations",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 140,
+    "theme": "recommandations",
+    "question": "Quelle recommandation concerne la baisse des ventes du produit X ?",
+    "answer_mode": "calculate_from_database",
+    "current_intent": "get_recommendations",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 141,
+    "theme": "recommandations",
+    "question": "Quelle recommandation concerne la marge insuffisante de la région Y ?",
+    "answer_mode": "calculate_from_database",
+    "current_intent": "get_recommendations",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 142,
+    "theme": "recommandations",
+    "question": "Quelle recommandation concerne la dépendance envers le client Z ?",
+    "answer_mode": "calculate_from_database",
+    "current_intent": "get_recommendations",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 143,
+    "theme": "recommandations",
+    "question": "Quelles sont les recommandations liées à une croissance peu rentable ?",
+    "answer_mode": "calculate_from_database",
+    "current_intent": "get_recommendations",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 144,
+    "theme": "recommandations",
+    "question": "Donne-moi la justification chiffrée de cette recommandation.",
+    "answer_mode": "calculate_from_database",
+    "current_intent": "get_recommendations",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 145,
+    "theme": "recommandations",
+    "question": "Classe les recommandations par ordre de priorité.",
+    "answer_mode": "calculate_from_database",
+    "current_intent": "get_recommendations",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 146,
+    "theme": "recommandations",
+    "question": "Quelles recommandations n'ont pas encore été appliquées ?",
+    "answer_mode": "calculate_from_database",
+    "current_intent": "get_recommendations",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 147,
+    "theme": "recommandations",
+    "question": "Quel est l'impact estimé si j'applique cette recommandation ?",
+    "answer_mode": "calculate_from_database",
+    "current_intent": "get_recommendations",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 148,
+    "theme": "recommandations",
+    "question": "Quelles recommandations concernent l'ensemble de l'entreprise plutôt qu'un segment ?",
+    "answer_mode": "calculate_from_database",
+    "current_intent": "get_recommendations",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 149,
+    "theme": "recommandations",
+    "question": "Explique en détail pourquoi cette baisse de ventes a été détectée.",
+    "answer_mode": "calculate_from_database",
+    "current_intent": "detect_anomalies",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 150,
+    "theme": "recommandations",
+    "question": "Recommande une stratégie globale pour le prochain trimestre.",
+    "answer_mode": "calculate_from_database",
+    "current_intent": "get_recommendations",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 151,
+    "theme": "comparaisons_temporelles",
+    "question": "Compare les ventes de ce mois avec le même mois l'an dernier.",
+    "answer_mode": "calculate_from_database",
+    "current_intent": "compare_periods",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 152,
+    "theme": "comparaisons_temporelles",
+    "question": "Compare les performances du T1 et du T2.",
+    "answer_mode": "calculate_from_database",
+    "current_intent": "compare_periods",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 153,
+    "theme": "comparaisons_temporelles",
+    "question": "Quelle est la différence entre les ventes de janvier et février ?",
+    "answer_mode": "calculate_from_database",
+    "current_intent": "clarification",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 154,
+    "theme": "comparaisons_temporelles",
+    "question": "Compare l'évolution du chiffre d'affaires sur les 3 dernières années.",
+    "answer_mode": "calculate_from_database",
+    "current_intent": "compare_periods",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 155,
+    "theme": "comparaisons_temporelles",
+    "question": "Quelle période a été la plus performante cette année ?",
+    "answer_mode": "calculate_from_database",
+    "current_intent": "clarification",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 156,
+    "theme": "comparaisons_temporelles",
+    "question": "Quelle période a été la moins performante cette année ?",
+    "answer_mode": "calculate_from_database",
+    "current_intent": "clarification",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 157,
+    "theme": "comparaisons_temporelles",
+    "question": "Compare les performances avant et après le lancement du produit X.",
+    "answer_mode": "calculate_from_database",
+    "current_intent": "compare_products",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 158,
+    "theme": "comparaisons_temporelles",
+    "question": "Quelle est la saisonnalité observée dans les ventes ?",
+    "answer_mode": "calculate_from_database",
+    "current_intent": "clarification",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 159,
+    "theme": "comparaisons_temporelles",
+    "question": "Compare les résultats du dernier trimestre à l'objectif fixé.",
+    "answer_mode": "calculate_from_database",
+    "current_intent": "compare_periods",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 160,
+    "theme": "comparaisons_temporelles",
+    "question": "Quelle est l'évolution année après année (YoY) du chiffre d'affaires ?",
+    "answer_mode": "calculate_from_database",
+    "current_intent": "get_kpi",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 161,
+    "theme": "import_donnees",
+    "question": "Comment importer un fichier CSV de ventes ?",
+    "answer_mode": "product_help",
+    "current_intent": "clarification",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 162,
+    "theme": "import_donnees",
+    "question": "Quels formats de fichiers sont supportés pour l'import ?",
+    "answer_mode": "product_help",
+    "current_intent": "clarification",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 163,
+    "theme": "import_donnees",
+    "question": "Le fichier importé contient des erreurs, que dois-je faire ?",
+    "answer_mode": "product_help",
+    "current_intent": "clarification",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 164,
+    "theme": "import_donnees",
+    "question": "Comment fusionner deux fichiers de ventes de sources différentes ?",
+    "answer_mode": "product_help",
+    "current_intent": "clarification",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 165,
+    "theme": "import_donnees",
+    "question": "Quelles colonnes sont obligatoires dans un fichier d'import ?",
+    "answer_mode": "product_help",
+    "current_intent": "clarification",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 166,
+    "theme": "import_donnees",
+    "question": "Comment corriger des données manquantes après import ?",
+    "answer_mode": "product_help",
+    "current_intent": "clarification",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 167,
+    "theme": "import_donnees",
+    "question": "Combien de lignes ont été importées avec succès ?",
+    "answer_mode": "product_help",
+    "current_intent": "clarification",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 168,
+    "theme": "import_donnees",
+    "question": "Y a-t-il des doublons dans les données importées ?",
+    "answer_mode": "product_help",
+    "current_intent": "clarification",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 169,
+    "theme": "import_donnees",
+    "question": "Comment mettre à jour les données existantes avec un nouveau fichier ?",
+    "answer_mode": "product_help",
+    "current_intent": "clarification",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 170,
+    "theme": "import_donnees",
+    "question": "Quelle est la dernière date de mise à jour des données ?",
+    "answer_mode": "product_help",
+    "current_intent": "clarification",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 171,
+    "theme": "dashboard_navigation",
+    "question": "Comment personnaliser mon tableau de bord ?",
+    "answer_mode": "product_help",
+    "current_intent": "clarification",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 172,
+    "theme": "dashboard_navigation",
+    "question": "Comment ajouter un nouvel indicateur au tableau de bord ?",
+    "answer_mode": "product_help",
+    "current_intent": "clarification",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 173,
+    "theme": "dashboard_navigation",
+    "question": "Comment exporter le tableau de bord en PDF ?",
+    "answer_mode": "product_help",
+    "current_intent": "clarification",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 174,
+    "theme": "dashboard_navigation",
+    "question": "Comment filtrer les données par période sur le tableau de bord ?",
+    "answer_mode": "product_help",
+    "current_intent": "clarification",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 175,
+    "theme": "dashboard_navigation",
+    "question": "Comment filtrer les données par région sur le tableau de bord ?",
+    "answer_mode": "product_help",
+    "current_intent": "clarification",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 176,
+    "theme": "dashboard_navigation",
+    "question": "Comment comparer deux indicateurs sur le même graphique ?",
+    "answer_mode": "product_help",
+    "current_intent": "compare_periods",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 177,
+    "theme": "dashboard_navigation",
+    "question": "Comment partager ce tableau de bord avec un collègue ?",
+    "answer_mode": "product_help",
+    "current_intent": "clarification",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 178,
+    "theme": "dashboard_navigation",
+    "question": "Comment afficher l'évolution d'un indicateur sur plusieurs années ?",
+    "answer_mode": "product_help",
+    "current_intent": "clarification",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 179,
+    "theme": "dashboard_navigation",
+    "question": "Quels indicateurs sont disponibles par défaut sur le tableau de bord ?",
+    "answer_mode": "product_help",
+    "current_intent": "clarification",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 180,
+    "theme": "dashboard_navigation",
+    "question": "Comment créer un tableau de bord spécifique à une région ?",
+    "answer_mode": "product_help",
+    "current_intent": "clarification",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 181,
+    "theme": "analyse_ouverte",
+    "question": "Pourquoi mes ventes ont-elles baissé ce mois-ci ?",
+    "answer_mode": "calculate_from_database",
+    "current_intent": "detect_anomalies",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 182,
+    "theme": "analyse_ouverte",
+    "question": "Quels sont les principaux problèmes détectés dans mes données de vente ?",
+    "answer_mode": "calculate_from_database",
+    "current_intent": "detect_anomalies",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 183,
+    "theme": "analyse_ouverte",
+    "question": "Que dois-je surveiller en priorité ce mois-ci ?",
+    "answer_mode": "calculate_from_database",
+    "current_intent": "detect_anomalies",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 184,
+    "theme": "analyse_ouverte",
+    "question": "Résume la performance commerciale du mois en 3 points.",
+    "answer_mode": "calculate_from_database",
+    "current_intent": "clarification",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 185,
+    "theme": "analyse_ouverte",
+    "question": "Quels sont les risques commerciaux actuels de l'entreprise ?",
+    "answer_mode": "calculate_from_database",
+    "current_intent": "detect_anomalies",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 186,
+    "theme": "analyse_ouverte",
+    "question": "Quelles opportunités de croissance identifies-tu dans mes données ?",
+    "answer_mode": "calculate_from_database",
+    "current_intent": "get_kpi",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 187,
+    "theme": "analyse_ouverte",
+    "question": "Quel est le principal levier d'amélioration de la rentabilité ?",
+    "answer_mode": "calculate_from_database",
+    "current_intent": "clarification",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 188,
+    "theme": "analyse_ouverte",
+    "question": "Si je devais concentrer mes efforts sur un seul axe, lequel choisir ?",
+    "answer_mode": "calculate_from_database",
+    "current_intent": "clarification",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 189,
+    "theme": "analyse_ouverte",
+    "question": "Quels indicateurs sont en alerte rouge actuellement ?",
+    "answer_mode": "calculate_from_database",
+    "current_intent": "clarification",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 190,
+    "theme": "analyse_ouverte",
+    "question": "Fais-moi un résumé exécutif de la performance commerciale du trimestre.",
+    "answer_mode": "calculate_from_database",
+    "current_intent": "clarification",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 191,
+    "theme": "analyse_ouverte",
+    "question": "Quelles décisions commerciales recommandes-tu pour le mois prochain ?",
+    "answer_mode": "calculate_from_database",
+    "current_intent": "get_recommendations",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 192,
+    "theme": "analyse_ouverte",
+    "question": "Quels sont les 3 risques les plus urgents à traiter ?",
+    "answer_mode": "calculate_from_database",
+    "current_intent": "detect_anomalies",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 193,
+    "theme": "analyse_ouverte",
+    "question": "Quelle est la santé commerciale globale de l'entreprise en une phrase ?",
+    "answer_mode": "calculate_from_database",
+    "current_intent": "clarification",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 194,
+    "theme": "analyse_ouverte",
+    "question": "Quels indicateurs se sont améliorés depuis le mois dernier ?",
+    "answer_mode": "calculate_from_database",
+    "current_intent": "clarification",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 195,
+    "theme": "analyse_ouverte",
+    "question": "Quels indicateurs se sont dégradés depuis le mois dernier ?",
+    "answer_mode": "calculate_from_database",
+    "current_intent": "clarification",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 196,
+    "theme": "multi_entites",
+    "question": "Compare le client X et la région Y en termes de rentabilité.",
+    "answer_mode": "calculate_from_database",
+    "current_intent": "compare_clients",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 197,
+    "theme": "multi_entites",
+    "question": "Quel est le produit le plus dépendant d'un seul client ?",
+    "answer_mode": "calculate_from_database",
+    "current_intent": "rank_clients",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 198,
+    "theme": "multi_entites",
+    "question": "Quelle région dépend le plus d'un seul produit ?",
+    "answer_mode": "calculate_from_database",
+    "current_intent": "rank_regions",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 199,
+    "theme": "multi_entites",
+    "question": "Quel client achète le plus de produits différents ?",
+    "answer_mode": "calculate_from_database",
+    "current_intent": "rank_clients",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 200,
+    "theme": "multi_entites",
+    "question": "Quel produit est vendu dans le plus grand nombre de régions ?",
+    "answer_mode": "calculate_from_database",
+    "current_intent": "rank_regions",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 201,
+    "theme": "multi_entites",
+    "question": "Quelle combinaison produit/région génère le plus de chiffre d'affaires ?",
+    "answer_mode": "calculate_from_database",
+    "current_intent": "rank_regions",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 202,
+    "theme": "multi_entites",
+    "question": "Quelle combinaison produit/client génère le plus de marge ?",
+    "answer_mode": "calculate_from_database",
+    "current_intent": "rank_clients",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 203,
+    "theme": "multi_entites",
+    "question": "Quel segment croise le mieux fort volume et forte marge ?",
+    "answer_mode": "calculate_from_database",
+    "current_intent": "get_kpi",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 204,
+    "theme": "multi_entites",
+    "question": "Quels produits sont vendus uniquement à un seul client ?",
+    "answer_mode": "calculate_from_database",
+    "current_intent": "get_kpi",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 205,
+    "theme": "multi_entites",
+    "question": "Quelle région a la plus grande diversité de clients ?",
+    "answer_mode": "calculate_from_database",
+    "current_intent": "rank_clients",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 206,
+    "theme": "objectifs",
+    "question": "Sommes-nous en ligne avec l'objectif de chiffre d'affaires annuel ?",
+    "answer_mode": "requires_objective_data",
+    "current_intent": "get_kpi",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 207,
+    "theme": "objectifs",
+    "question": "Quel est l'écart entre l'objectif et le réalisé ce mois-ci ?",
+    "answer_mode": "requires_objective_data",
+    "current_intent": "compare_periods",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 208,
+    "theme": "objectifs",
+    "question": "Quel pourcentage de l'objectif trimestriel a été atteint ?",
+    "answer_mode": "requires_objective_data",
+    "current_intent": "clarification",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 209,
+    "theme": "objectifs",
+    "question": "Quelle région est la plus en retard sur ses objectifs ?",
+    "answer_mode": "requires_objective_data",
+    "current_intent": "clarification",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 210,
+    "theme": "objectifs",
+    "question": "Quel commercial ou quelle équipe est le plus performant ?",
+    "answer_mode": "requires_objective_data",
+    "current_intent": "rank_products",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 211,
+    "theme": "objectifs",
+    "question": "Quel est le taux d'atteinte des objectifs par produit ?",
+    "answer_mode": "requires_objective_data",
+    "current_intent": "clarification",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 212,
+    "theme": "objectifs",
+    "question": "Que faut-il faire pour atteindre l'objectif du trimestre ?",
+    "answer_mode": "requires_objective_data",
+    "current_intent": "clarification",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 213,
+    "theme": "objectifs",
+    "question": "Quel est le rythme de vente nécessaire pour atteindre l'objectif annuel ?",
+    "answer_mode": "requires_objective_data",
+    "current_intent": "clarification",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 214,
+    "theme": "objectifs",
+    "question": "Quels objectifs ont été dépassés ce mois-ci ?",
+    "answer_mode": "requires_objective_data",
+    "current_intent": "clarification",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 215,
+    "theme": "objectifs",
+    "question": "Quels objectifs n'ont pas été atteints depuis 3 mois consécutifs ?",
+    "answer_mode": "requires_objective_data",
+    "current_intent": "clarification",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 216,
+    "theme": "diagnostic",
+    "question": "Quelle est la cause probable de la baisse de marge du produit X ?",
+    "answer_mode": "calculate_from_database",
+    "current_intent": "detect_anomalies",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 217,
+    "theme": "diagnostic",
+    "question": "Cette baisse de ventes est-elle liée à la saisonnalité ou à un problème structurel ?",
+    "answer_mode": "calculate_from_database",
+    "current_intent": "detect_anomalies",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 218,
+    "theme": "diagnostic",
+    "question": "Quels facteurs expliquent la sous-performance de la région Y ?",
+    "answer_mode": "calculate_from_database",
+    "current_intent": "analyze_region",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 219,
+    "theme": "diagnostic",
+    "question": "Cette croissance est-elle rentable ou seulement due au volume ?",
+    "answer_mode": "calculate_from_database",
+    "current_intent": "get_kpi",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 220,
+    "theme": "diagnostic",
+    "question": "Quels indicateurs sont corrélés avec la baisse du chiffre d'affaires ?",
+    "answer_mode": "calculate_from_database",
+    "current_intent": "detect_anomalies",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 221,
+    "theme": "diagnostic",
+    "question": "Y a-t-il un lien entre la baisse de marge et la hausse des coûts ?",
+    "answer_mode": "calculate_from_database",
+    "current_intent": "detect_anomalies",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 222,
+    "theme": "diagnostic",
+    "question": "La dépendance envers le client X augmente-t-elle avec le temps ?",
+    "answer_mode": "calculate_from_database",
+    "current_intent": "analyze_customer",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 223,
+    "theme": "diagnostic",
+    "question": "Quels signaux faibles annoncent une possible baisse de performance ?",
+    "answer_mode": "calculate_from_database",
+    "current_intent": "detect_anomalies",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 224,
+    "theme": "diagnostic",
+    "question": "Quelle est la probabilité que cette tendance se poursuive le mois prochain ?",
+    "answer_mode": "calculate_from_database",
+    "current_intent": "clarification",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 225,
+    "theme": "diagnostic",
+    "question": "Quels indicateurs devraient être surveillés en priorité selon l'IA ?",
+    "answer_mode": "calculate_from_database",
+    "current_intent": "get_forecast",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 226,
+    "theme": "prise_en_main",
+    "question": "Qu'est-ce que SalesDecision AI peut faire pour moi ?",
+    "answer_mode": "product_help",
+    "current_intent": "clarification",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 227,
+    "theme": "prise_en_main",
+    "question": "Comment fonctionne le moteur de recommandations ?",
+    "answer_mode": "product_help",
+    "current_intent": "get_recommendations",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 228,
+    "theme": "prise_en_main",
+    "question": "Comment sont calculées les prévisions de chiffre d'affaires ?",
+    "answer_mode": "product_help",
+    "current_intent": "get_forecast",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 229,
+    "theme": "prise_en_main",
+    "question": "Puis-je poser des questions en langage naturel sur mes données ?",
+    "answer_mode": "product_help",
+    "current_intent": "clarification",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 230,
+    "theme": "prise_en_main",
+    "question": "Quelles données dois-je fournir pour utiliser l'application ?",
+    "answer_mode": "product_help",
+    "current_intent": "clarification",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 231,
+    "theme": "prise_en_main",
+    "question": "Comment l'assistant explique-t-il ses recommandations ?",
+    "answer_mode": "product_help",
+    "current_intent": "get_recommendations",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 232,
+    "theme": "prise_en_main",
+    "question": "Est-ce que je peux configurer mes propres alertes ?",
+    "answer_mode": "product_help",
+    "current_intent": "clarification",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 233,
+    "theme": "prise_en_main",
+    "question": "Quelle est la différence entre une alerte et une recommandation ?",
+    "answer_mode": "product_help",
+    "current_intent": "get_recommendations",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 234,
+    "theme": "prise_en_main",
+    "question": "Comment l'IA détecte-t-elle une sous-performance régionale ?",
+    "answer_mode": "product_help",
+    "current_intent": "clarification",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 235,
+    "theme": "prise_en_main",
+    "question": "Comment l'IA détecte-t-elle une dépendance excessive envers un client ?",
+    "answer_mode": "product_help",
+    "current_intent": "clarification",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 236,
+    "theme": "requetes_courtes",
+    "question": "CA total 2026 ?",
+    "answer_mode": "calculate_from_database",
+    "current_intent": "get_kpi",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 237,
+    "theme": "requetes_courtes",
+    "question": "Marge moyenne ce mois ?",
+    "answer_mode": "calculate_from_database",
+    "current_intent": "get_kpi",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 238,
+    "theme": "requetes_courtes",
+    "question": "Top 5 clients par CA ?",
+    "answer_mode": "calculate_from_database",
+    "current_intent": "rank_clients",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 239,
+    "theme": "requetes_courtes",
+    "question": "Top 5 produits par marge ?",
+    "answer_mode": "calculate_from_database",
+    "current_intent": "rank_products",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 240,
+    "theme": "requetes_courtes",
+    "question": "Panier moyen par région ?",
+    "answer_mode": "calculate_from_database",
+    "current_intent": "get_kpi",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 241,
+    "theme": "requetes_courtes",
+    "question": "Croissance CA vs N-1 ?",
+    "answer_mode": "calculate_from_database",
+    "current_intent": "get_kpi",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 242,
+    "theme": "requetes_courtes",
+    "question": "Nombre de commandes ce mois ?",
+    "answer_mode": "calculate_from_database",
+    "current_intent": "clarification",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 243,
+    "theme": "requetes_courtes",
+    "question": "Marge du produit X ce trimestre ?",
+    "answer_mode": "calculate_from_database",
+    "current_intent": "analyze_product",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 244,
+    "theme": "requetes_courtes",
+    "question": "CA de la région Nord en juin ?",
+    "answer_mode": "calculate_from_database",
+    "current_intent": "analyze_region",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 245,
+    "theme": "requetes_courtes",
+    "question": "Prévision CA septembre ?",
+    "answer_mode": "calculate_from_database",
+    "current_intent": "get_forecast",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 246,
+    "theme": "requetes_courtes",
+    "question": "Client le plus rentable ?",
+    "answer_mode": "calculate_from_database",
+    "current_intent": "rank_clients",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 247,
+    "theme": "requetes_courtes",
+    "question": "Produit le moins rentable ?",
+    "answer_mode": "calculate_from_database",
+    "current_intent": "clarification",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 248,
+    "theme": "requetes_courtes",
+    "question": "Région avec la plus forte baisse ?",
+    "answer_mode": "calculate_from_database",
+    "current_intent": "detect_anomalies",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 249,
+    "theme": "requetes_courtes",
+    "question": "Taux de marge global ?",
+    "answer_mode": "calculate_from_database",
+    "current_intent": "get_kpi",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 250,
+    "theme": "requetes_courtes",
+    "question": "Nombre de clients actifs ?",
+    "answer_mode": "calculate_from_database",
+    "current_intent": "clarification",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 251,
+    "theme": "simulations",
+    "question": "Que se passerait-il si j'augmente le prix du produit X de 5 % ?",
+    "answer_mode": "simulation",
+    "current_intent": "analyze_product",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 252,
+    "theme": "simulations",
+    "question": "Quel impact aurait une baisse de 10 % des coûts sur la marge globale ?",
+    "answer_mode": "simulation",
+    "current_intent": "detect_anomalies",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 253,
+    "theme": "simulations",
+    "question": "Que se passerait-il si je perdais mon plus gros client ?",
+    "answer_mode": "simulation",
+    "current_intent": "clarification",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 254,
+    "theme": "simulations",
+    "question": "Quel serait l'impact d'une croissance de 15 % dans la région Y ?",
+    "answer_mode": "simulation",
+    "current_intent": "analyze_region",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 255,
+    "theme": "simulations",
+    "question": "Que se passerait-il si je supprimais le produit le moins rentable ?",
+    "answer_mode": "simulation",
+    "current_intent": "clarification",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 256,
+    "theme": "simulations",
+    "question": "Simule l'effet d'une remise de 10 % sur les 3 meilleurs clients.",
+    "answer_mode": "simulation",
+    "current_intent": "rank_clients",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 257,
+    "theme": "simulations",
+    "question": "Quel serait le chiffre d'affaires si la tendance actuelle se poursuivait sur 12 mois ?",
+    "answer_mode": "simulation",
+    "current_intent": "get_kpi",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 258,
+    "theme": "simulations",
+    "question": "Que se passerait-il si je réallouais mon budget marketing vers la région X ?",
+    "answer_mode": "simulation",
+    "current_intent": "analyze_region",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 259,
+    "theme": "simulations",
+    "question": "Quel est le seuil de rentabilité du produit X ?",
+    "answer_mode": "simulation",
+    "current_intent": "analyze_product",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 260,
+    "theme": "simulations",
+    "question": "Combien d'unités dois-je vendre pour compenser la baisse de marge ?",
+    "answer_mode": "simulation",
+    "current_intent": "detect_anomalies",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 261,
+    "theme": "suivi_conversationnel",
+    "question": "Peux-tu approfondir cette recommandation ?",
+    "answer_mode": "calculate_from_database",
+    "current_intent": "get_recommendations",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 262,
+    "theme": "suivi_conversationnel",
+    "question": "Peux-tu me montrer les chiffres qui justifient cette alerte ?",
+    "answer_mode": "calculate_from_database",
+    "current_intent": "get_kpi",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 263,
+    "theme": "suivi_conversationnel",
+    "question": "Peux-tu comparer cela avec le mois précédent ?",
+    "answer_mode": "calculate_from_database",
+    "current_intent": "compare_periods",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 264,
+    "theme": "suivi_conversationnel",
+    "question": "Peux-tu détailler par région ce résultat global ?",
+    "answer_mode": "calculate_from_database",
+    "current_intent": "clarification",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 265,
+    "theme": "suivi_conversationnel",
+    "question": "Peux-tu m'expliquer ce chiffre plus simplement ?",
+    "answer_mode": "calculate_from_database",
+    "current_intent": "get_kpi",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 266,
+    "theme": "suivi_conversationnel",
+    "question": "Peux-tu me donner la même analyse pour un autre produit ?",
+    "answer_mode": "calculate_from_database",
+    "current_intent": "clarification",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 267,
+    "theme": "suivi_conversationnel",
+    "question": "Peux-tu générer un export de cette analyse ?",
+    "answer_mode": "calculate_from_database",
+    "current_intent": "clarification",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 268,
+    "theme": "suivi_conversationnel",
+    "question": "Peux-tu reformuler cette recommandation pour un client externe ?",
+    "answer_mode": "calculate_from_database",
+    "current_intent": "get_recommendations",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 269,
+    "theme": "suivi_conversationnel",
+    "question": "Peux-tu me dire si cette tendance est habituelle à cette période de l'année ?",
+    "answer_mode": "calculate_from_database",
+    "current_intent": "clarification",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 270,
+    "theme": "suivi_conversationnel",
+    "question": "Peux-tu me proposer une version courte de ce résumé pour une présentation ?",
+    "answer_mode": "calculate_from_database",
+    "current_intent": "clarification",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 271,
+    "theme": "reporting_direction",
+    "question": "Prépare un résumé pour le comité de direction sur les ventes du trimestre.",
+    "answer_mode": "calculate_from_database",
+    "current_intent": "clarification",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 272,
+    "theme": "reporting_direction",
+    "question": "Quels sont les 3 chiffres clés à retenir ce mois-ci ?",
+    "answer_mode": "calculate_from_database",
+    "current_intent": "get_kpi",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 273,
+    "theme": "reporting_direction",
+    "question": "Quelle est la synthèse à présenter en réunion commerciale hebdomadaire ?",
+    "answer_mode": "calculate_from_database",
+    "current_intent": "clarification",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 274,
+    "theme": "reporting_direction",
+    "question": "Quels indicateurs dois-je inclure dans mon rapport mensuel ?",
+    "answer_mode": "calculate_from_database",
+    "current_intent": "clarification",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 275,
+    "theme": "reporting_direction",
+    "question": "Rédige une conclusion sur la performance commerciale du mois.",
+    "answer_mode": "calculate_from_database",
+    "current_intent": "clarification",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 276,
+    "theme": "reporting_direction",
+    "question": "Quels points d'attention dois-je signaler à ma direction ?",
+    "answer_mode": "calculate_from_database",
+    "current_intent": "clarification",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 277,
+    "theme": "reporting_direction",
+    "question": "Quelle recommandation stratégique proposes-tu pour le prochain trimestre ?",
+    "answer_mode": "calculate_from_database",
+    "current_intent": "get_recommendations",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 278,
+    "theme": "reporting_direction",
+    "question": "Quels risques dois-je mentionner dans le rapport trimestriel ?",
+    "answer_mode": "calculate_from_database",
+    "current_intent": "detect_anomalies",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 279,
+    "theme": "reporting_direction",
+    "question": "Quelle tendance de fond dois-je surveiller sur les 12 prochains mois ?",
+    "answer_mode": "calculate_from_database",
+    "current_intent": "detect_anomalies",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 280,
+    "theme": "reporting_direction",
+    "question": "Résume en une phrase la situation commerciale actuelle de l'entreprise.",
+    "answer_mode": "calculate_from_database",
+    "current_intent": "clarification",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 281,
+    "theme": "gestion_erreurs",
+    "question": "Il n'y a pas assez de données pour calculer cet indicateur, que faire ?",
+    "answer_mode": "product_help",
+    "current_intent": "get_recommendations",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 282,
+    "theme": "gestion_erreurs",
+    "question": "Les données du mois dernier semblent incomplètes, peux-tu vérifier ?",
+    "answer_mode": "product_help",
+    "current_intent": "clarification",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 283,
+    "theme": "gestion_erreurs",
+    "question": "Cette valeur me semble incohérente, peux-tu la recalculer ?",
+    "answer_mode": "product_help",
+    "current_intent": "clarification",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 284,
+    "theme": "gestion_erreurs",
+    "question": "Que faire si deux fichiers importés se contredisent ?",
+    "answer_mode": "product_help",
+    "current_intent": "get_recommendations",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 285,
+    "theme": "gestion_erreurs",
+    "question": "Comment traiter une valeur négative dans les données de vente ?",
+    "answer_mode": "product_help",
+    "current_intent": "clarification",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 286,
+    "theme": "gestion_erreurs",
+    "question": "Que faire si un client apparaît sous deux noms différents ?",
+    "answer_mode": "product_help",
+    "current_intent": "get_recommendations",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 287,
+    "theme": "gestion_erreurs",
+    "question": "Comment gérer les ventes en devises différentes ?",
+    "answer_mode": "product_help",
+    "current_intent": "clarification",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 288,
+    "theme": "gestion_erreurs",
+    "question": "Que faire si aucune tendance claire ne se dégage des données ?",
+    "answer_mode": "product_help",
+    "current_intent": "get_recommendations",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 289,
+    "theme": "gestion_erreurs",
+    "question": "Comment interpréter une prévision avec un faible niveau de confiance ?",
+    "answer_mode": "product_help",
+    "current_intent": "get_forecast",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 290,
+    "theme": "gestion_erreurs",
+    "question": "Que faire si les données sont insuffisantes pour une recommandation fiable ?",
+    "answer_mode": "product_help",
+    "current_intent": "get_recommendations",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 291,
+    "theme": "preferences",
+    "question": "Peux-tu toujours me donner mes réponses en pourcentage plutôt qu'en valeur absolue ?",
+    "answer_mode": "user_preference",
+    "current_intent": "clarification",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 292,
+    "theme": "preferences",
+    "question": "Peux-tu prioriser les alertes concernant la marge plutôt que le volume ?",
+    "answer_mode": "user_preference",
+    "current_intent": "get_kpi",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 293,
+    "theme": "preferences",
+    "question": "Peux-tu me donner des réponses plus courtes à l'avenir ?",
+    "answer_mode": "user_preference",
+    "current_intent": "clarification",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 294,
+    "theme": "preferences",
+    "question": "Peux-tu toujours inclure une recommandation à la fin de tes réponses ?",
+    "answer_mode": "user_preference",
+    "current_intent": "get_recommendations",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 295,
+    "theme": "preferences",
+    "question": "Peux-tu adapter tes réponses à un public non technique ?",
+    "answer_mode": "user_preference",
+    "current_intent": "clarification",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 296,
+    "theme": "preferences",
+    "question": "Peux-tu te concentrer uniquement sur la région Nord dans nos échanges ?",
+    "answer_mode": "user_preference",
+    "current_intent": "analyze_region",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 297,
+    "theme": "preferences",
+    "question": "Peux-tu ignorer les clients avec un chiffre d'affaires inférieur à un seuil donné ?",
+    "answer_mode": "user_preference",
+    "current_intent": "get_kpi",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 298,
+    "theme": "preferences",
+    "question": "Peux-tu comparer systématiquement avec l'année précédente sans que je le demande ?",
+    "answer_mode": "user_preference",
+    "current_intent": "compare_periods",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 299,
+    "theme": "preferences",
+    "question": "Peux-tu me signaler proactivement toute anomalie détectée dans les données ?",
+    "answer_mode": "user_preference",
+    "current_intent": "detect_anomalies",
+    "review_status": "pending_reference_answer"
+  },
+  {
+    "id": 300,
+    "theme": "preferences",
+    "question": "Peux-tu résumer chaque réponse en une phrase avant les détails ?",
+    "answer_mode": "user_preference",
+    "current_intent": "clarification",
+    "review_status": "pending_reference_answer"
+  }
+]

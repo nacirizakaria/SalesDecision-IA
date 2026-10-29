@@ -1,0 +1,140 @@
+{% load static %}
+<!doctype html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block title %}{% endblock %} · SalesDecision AI</title>
+    <link rel="icon" type="image/png" href="{% static 'img/salesdecision-prism.png' %}">
+    <link rel="stylesheet" href="{% static 'css/base.css' %}?v=20260730-1">
+    {% block extra_css %}{% endblock %}
+    <link rel="stylesheet" href="{% static 'css/enterprise.css' %}?v=20260730-17">
+</head>
+<body>
+    <a class="skip-link" href="#mainContent">Aller au contenu principal</a>
+    {% block nav %}
+    {% if request.user.is_authenticated %}
+    <div class="app-shell">
+        <nav class="site-nav" aria-label="Navigation principale">
+            <a class="brand" href="{% url 'dashboard' %}" aria-label="SalesDecision AI, tableau de bord">
+                <span class="brand-mark"><img class="site-logo-image" src="{% static 'img/salesdecision-prism.png' %}" alt="" width="30" height="22"></span>
+                <span class="brand-copy"><strong>SalesDecision <em>AI</em></strong><small>Assistant d'analyse intelligente</small></span>
+            </a>
+            <span class="nav-label">Analyse commerciale</span>
+            <div class="nav-links">
+                <a class="nav-link {% if request.resolver_match.url_name == 'dashboard' %}is-active{% endif %}" href="{% url 'dashboard' %}"><svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg><span class="nav-link-label">Dashboard</span></a>
+                {% if perms.sales.import_sales %}
+                <a class="nav-link {% if request.resolver_match.url_name == 'import_ventes' %}is-active{% endif %}" href="{% url 'import_ventes' %}"><svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 16V4m0 0L7 9m5-5 5 5"/><path d="M4 15v4a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-4"/></svg><span class="nav-link-label">Importer</span></a>
+                {% endif %}
+                <a class="nav-link {% if request.resolver_match.url_name == 'liste_ventes' %}is-active{% endif %}" href="{% url 'liste_ventes' %}"><svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M8 6h13M8 12h13M8 18h13"/><path d="M3 6h.01M3 12h.01M3 18h.01"/></svg><span class="nav-link-label">Liste des ventes</span></a>
+                {% if request.user.is_staff %}
+                <a class="nav-link {% if request.resolver_match.url_name == 'create_user' %}is-active{% endif %}" href="{% url 'create_user' %}"><svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="3.5"/><path d="M5 21a7 7 0 0 1 14 0"/></svg><span class="nav-link-label">Utilisateurs</span></a>
+                <a class="nav-link {% if request.resolver_match.url_name == 'security_users' %}is-active{% endif %}" href="{% url 'security_users' %}"><svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3 5 6v5c0 4.6 2.8 8 7 10 4.2-2 7-5.4 7-10V6l-7-3Z"/><path d="m9 12 2 2 4-4"/></svg><span class="nav-link-label">Sécurité</span></a>
+                {% endif %}
+                {% if perms.sales.configure_thresholds %}
+                <a class="nav-link {% if request.resolver_match.url_name == 'configurer_alertes' %}is-active{% endif %}" href="{% url 'configurer_alertes' %}"><svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3 3 19h18L12 3Z"/><path d="M12 9v4m0 3h.01"/></svg><span class="nav-link-label">Alertes</span></a>
+                {% endif %}
+            </div>
+            <div class="nav-account">
+                <div class="nav-profile"><span class="nav-profile-avatar">{{ request.user.get_username|slice:":1"|upper }}</span><span><strong>{{ request.user.get_username }}</strong><small>{% if request.user.is_staff %}Administrateur{% elif request.user.groups.first %}{{ request.user.groups.first.name }}{% else %}Utilisateur{% endif %}</small></span></div>
+                <form class="nav-logout" method="post" action="{% url 'logout' %}">{% csrf_token %}<button type="submit">Se déconnecter</button></form>
+            </div>
+        </nav>
+        <button class="nav-overlay" id="navOverlay" type="button" aria-label="Fermer le menu" tabindex="-1"></button>
+        <header class="topbar">
+            <div class="topbar-leading">
+                <button class="sidebar-toggle" id="sidebarToggle" type="button" aria-label="Afficher ou masquer le menu" aria-expanded="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+                </button>
+                <span class="topbar-context"><strong>SalesDecision AI</strong><span class="breadcrumb-separator">/</span>{% block breadcrumb %}Espace de travail{% endblock %}</span>
+            </div>
+            <form class="topbar-search" action="{% url 'liste_ventes' %}" method="get" role="search">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="m16 16 4 4"/></svg>
+                <input type="search" name="q" value="{{ request.GET.q|default:'' }}" placeholder="Rechercher une vente…" aria-label="Rechercher une vente">
+            </form>
+            <div class="topbar-account">
+                <button class="topbar-icon notification-trigger" id="notificationTrigger" type="button" aria-label="Voir les alertes" aria-expanded="false">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9"/><path d="M10 21h4"/></svg>
+                    {% if alertes_dashboard %}<span class="notification-count">{{ alertes_dashboard|length }}</span>{% endif %}
+                </button>
+                <section class="notification-panel" id="notificationPanel" aria-label="Centre d’alertes" hidden>
+                    <header class="notification-header">
+                        <div><strong>Notifications</strong><small>Alertes commerciales actives</small></div>
+                        {% if perms.sales.configure_thresholds %}<a href="{% url 'configurer_alertes' %}">Configurer</a>{% endif %}
+                    </header>
+                    <div class="notification-list">
+                        {% for alerte in alertes_dashboard %}
+                            <a class="notification-item {{ alerte.niveau }}" href="{{ alerte.action_url }}">
+                                <span class="notification-dot"></span>
+                                <span><strong>{{ alerte.nom_kpi }}</strong><small>{{ alerte.message }}</small><em>{{ alerte.valeur }} {{ alerte.unite }}</em></span>
+                            </a>
+                        {% empty %}
+                            <div class="notification-empty"><span>✓</span><strong>Aucune alerte active</strong><small>Vos indicateurs sont dans une situation normale.</small></div>
+                        {% endfor %}
+                    </div>
+                </section>
+                <span class="topbar-user"><span class="user-avatar">{{ request.user.get_username|slice:":1"|upper }}</span><span class="topbar-user-copy"><strong>{{ request.user.get_username }}</strong><small>{% if request.user.is_staff %}Administrateur{% else %}Utilisateur{% endif %}</small></span></span>
+                <form class="logout-form" method="post" action="{% url 'logout' %}">{% csrf_token %}<button type="submit">Se déconnecter</button></form>
+            </div>
+        </header>
+    {% endif %}
+    {% endblock %}
+    <main id="mainContent" class="{% if request.user.is_authenticated %}page-content{% else %}auth-content{% endif %}" tabindex="-1"><div class="page-container">{% block content %}{% endblock %}</div></main>
+    {% if request.user.is_authenticated %}</div>{% endif %}
+    {% if request.user.is_authenticated %}
+    <script>
+        (() => {
+            const shell = document.querySelector('.app-shell');
+            const sidebarToggle = document.getElementById('sidebarToggle');
+            const navOverlay = document.getElementById('navOverlay');
+            const mobileNavigation = window.matchMedia('(max-width: 760px)');
+            const syncNavigation = () => {
+                const open = mobileNavigation.matches
+                    ? shell.classList.contains('nav-open')
+                    : !shell.classList.contains('nav-collapsed');
+                sidebarToggle.setAttribute('aria-expanded', String(open));
+            };
+            sidebarToggle?.addEventListener('click', () => {
+                if (mobileNavigation.matches) {
+                    shell.classList.toggle('nav-open');
+                } else {
+                    shell.classList.toggle('nav-collapsed');
+                    localStorage.setItem('salesdecision-nav-collapsed', shell.classList.contains('nav-collapsed') ? '1' : '0');
+                }
+                syncNavigation();
+            });
+            navOverlay?.addEventListener('click', () => {
+                shell.classList.remove('nav-open');
+                syncNavigation();
+            });
+            if (!mobileNavigation.matches && localStorage.getItem('salesdecision-nav-collapsed') === '1') {
+                shell.classList.add('nav-collapsed');
+            }
+            mobileNavigation.addEventListener('change', () => {
+                shell.classList.remove('nav-open');
+                syncNavigation();
+            });
+            syncNavigation();
+
+            const trigger = document.getElementById('notificationTrigger');
+            const panel = document.getElementById('notificationPanel');
+            if (!trigger || !panel) return;
+            const closeNotifications = () => {
+                panel.hidden = true;
+                trigger.setAttribute('aria-expanded', 'false');
+            };
+            trigger.addEventListener('click', event => {
+                event.stopPropagation();
+                panel.hidden = !panel.hidden;
+                trigger.setAttribute('aria-expanded', String(!panel.hidden));
+            });
+            panel.addEventListener('click', event => event.stopPropagation());
+            document.addEventListener('click', closeNotifications);
+            document.addEventListener('keydown', event => {
+                if (event.key === 'Escape') closeNotifications();
+            });
+        })();
+    </script>
+    {% endif %}
+</body>
+</html>

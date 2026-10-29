@@ -1,0 +1,83 @@
+{% extends "base.html" %}
+
+{% block title %}Importer des ventes{% endblock %}
+{% block breadcrumb %}Importer un fichier{% endblock %}
+
+{% block extra_css %}
+<style>
+    .page-content:has(.import-layout) { background: radial-gradient(circle at 70% 10%, rgba(109,74,255,.22), transparent 32%), #11121c; }
+    .import-layout { max-width: 1040px; margin: 22px auto; color: #fff; }
+    .import-header { margin-bottom: 24px; }
+    .import-header .page-heading { color: #fff; }
+    .import-header .page-subtitle { color: #aaa8b9; }
+    .message { margin-bottom: 16px; padding: 12px 14px; border-radius: 6px; font-size: 13px; }
+    .success { border: 1px solid #a7f3d0; background: var(--color-success-bg); color: var(--color-success-text); }
+    .error { border: 1px solid #fecaca; background: var(--color-error-bg); color: var(--color-error-text); }
+    .upload-card { padding: 28px; border-color: #343244; background: rgba(28,28,42,.9); box-shadow: 0 24px 70px rgba(0,0,0,.28); }
+    .upload-dropzone { position: relative; display: flex; min-height: 330px; flex-direction: column; align-items: center; justify-content: center; padding: 36px 24px; border: 1.5px dashed #625c79; border-radius: 14px; background: rgba(255,255,255,.025); text-align: center; transition: border-color .2s ease, background .2s ease; }
+    .upload-dropzone.is-dragging, .upload-dropzone:hover { border-color: #9c86ff; background: rgba(109,74,255,.08); }
+    .upload-icon { display: grid; width: 56px; height: 56px; place-items: center; border-radius: 16px; background: rgba(109,74,255,.18); color: #b6a6ff; }
+    .upload-icon svg { width: 24px; height: 24px; }
+    .upload-dropzone h2 { margin: 16px 0 6px; font-size: 16px; font-weight: 600; }
+    .upload-dropzone p { max-width: 440px; margin: 0; color: #aaa8b9; }
+    .upload-action { position: relative; z-index: 1; margin-top: 18px; padding: 9px 14px; border-radius: 6px; background: var(--color-primary); color: #fff; font-size: 13px; font-weight: 600; box-shadow: 0 1px 2px rgba(15, 23, 42, .08); }
+    .file-input { position: absolute; inset: 0; width: 100%; height: 100%; cursor: pointer; opacity: 0; }
+    .file-name { min-height: 20px; margin: 12px 0 0; color: #1d4ed8; font-size: 13px; font-weight: 600; }
+    .submit-row { display: flex; justify-content: flex-end; margin-top: 18px; }
+    .submit-row button { min-width: 132px; }
+    .recommendations { margin-top: 20px; padding: 22px 26px; border-color: #343244; background: rgba(28,28,42,.88); }
+    .recommendations h2 { margin: 0; font-size: 16px; font-weight: 600; }
+    .recommendations p { margin: 6px 0 14px; color: #aaa8b9; font-size: 13px; }
+    .tag-list { display: flex; flex-wrap: wrap; gap: 8px; }
+    .data-tag { padding: 6px 10px; border: 1px solid #454158; border-radius: 7px; background: #242335; color: #d9d4ef; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 12px; }
+</style>
+{% endblock %}
+
+{% block content %}
+<section class="import-layout">
+    <header class="import-header">
+        <span class="import-kicker">DONNÉES COMMERCIALES</span>
+        <h1 class="page-heading">Importer des ventes</h1>
+        <p class="page-subtitle">Ajoutez vos données commerciales pour alimenter vos analyses et prévisions.</p>
+    </header>
+
+    {% if message %}<p class="message success">{{ message }}</p>{% endif %}
+    {% if erreur %}<p class="message error">{{ erreur }}</p>{% endif %}
+
+    <form class="upload-card card-surface" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <label class="upload-dropzone" id="dropzone" for="{{ form.fichier.id_for_label }}">
+            <span class="upload-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 18a4 4 0 0 1-.7-7.94A6 6 0 0 1 18 8a4 4 0 1 1 .5 7.97"/><path d="M12 12v7m0-7-3 3m3-3 3 3"/></svg></span>
+            <h2>Glissez-déposez votre fichier ici</h2>
+            <p>Formats acceptés : CSV, XLS et XLSX, jusqu’à 10 Mo. Vous pouvez aussi parcourir vos fichiers.</p>
+            <span class="upload-action">Choisir un fichier</span>
+            {{ form.fichier.as_widget }}
+        </label>
+        {% if form.fichier.errors %}<p class="message error">{{ form.fichier.errors|striptags }}</p>{% endif %}
+        <p class="file-name" id="fileName" aria-live="polite"></p>
+        <div class="submit-row"><button type="submit">Importer le fichier</button></div>
+    </form>
+
+    <aside class="recommendations card-surface" aria-labelledby="columns-title">
+        <div class="import-guide">
+            <span><strong>1</strong><small>Sélectionnez</small><em>CSV ou Excel</em></span>
+            <span><strong>2</strong><small>Vérifiez</small><em>10 Mo maximum</em></span>
+            <span><strong>3</strong><small>Importez</small><em>Analyse automatique</em></span>
+        </div>
+        <h2 id="columns-title">Colonnes recommandées</h2>
+        <p>Les colonnes manquantes sont complétées automatiquement avec une valeur vide ou 0.</p>
+        <div class="tag-list"><span class="data-tag">date</span><span class="data-tag">client</span><span class="data-tag">produit</span><span class="data-tag">quantite</span><span class="data-tag">prix_unitaire</span><span class="data-tag">cout_unitaire</span><span class="data-tag">region</span></div>
+    </aside>
+</section>
+<script>
+    const fileInput = document.getElementById('{{ form.fichier.id_for_label }}');
+    const dropzone = document.getElementById('dropzone');
+    const fileName = document.getElementById('fileName');
+    fileInput.classList.add('file-input');
+    const updateFileName = () => { fileName.textContent = fileInput.files.length ? `Fichier sélectionné : ${fileInput.files[0].name}` : ''; };
+    fileInput.addEventListener('change', updateFileName);
+    ['dragenter', 'dragover'].forEach(type => dropzone.addEventListener(type, event => { event.preventDefault(); dropzone.classList.add('is-dragging'); }));
+    ['dragleave', 'drop'].forEach(type => dropzone.addEventListener(type, event => { event.preventDefault(); dropzone.classList.remove('is-dragging'); }));
+    dropzone.addEventListener('drop', event => { if (event.dataTransfer.files.length) { fileInput.files = event.dataTransfer.files; updateFileName(); } });
+</script>
+{% endblock %}

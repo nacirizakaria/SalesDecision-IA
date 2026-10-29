@@ -1,0 +1,83 @@
+{% extends "base.html" %}
+
+{% block title %}Créer un utilisateur{% endblock %}
+{% block breadcrumb %}Utilisateurs{% endblock %}
+
+{% block extra_css %}
+<style>
+    .user-page { width: min(920px, 100%); margin: 0 auto; }
+    .user-header { display: flex; margin-bottom: 24px; align-items: flex-end; justify-content: space-between; gap: 20px; text-align: left; }
+    .user-header p { margin: 7px 0 0; color: var(--color-text-muted); }
+    .security-link { display: inline-flex; min-height: 40px; padding: 9px 14px; align-items: center; border: 1px solid var(--color-border); border-radius: 9px; background: #fff; color: var(--color-primary); font-weight: 700; }
+    .user-kicker { display: block; margin-bottom: 7px; color: var(--color-primary); font-size: 10px; font-weight: 800; letter-spacing: .14em; }
+    .user-layout { display: grid; grid-template-columns: minmax(260px, .78fr) minmax(420px, 1.22fr); gap: 18px; align-items: stretch; }
+    .user-guide { padding: 26px; color: #fff; background: linear-gradient(145deg, #25283d, #343052); }
+    .user-guide-icon { display: grid; width: 46px; height: 46px; place-items: center; border-radius: 13px; background: rgba(139,112,255,.2); color: #c5b8ff; }
+    .user-guide-icon svg { width: 24px; height: 24px; }
+    .user-guide h2 { margin: 20px 0 8px; font-size: 19px; }
+    .user-guide > p { margin: 0; color: #c8cada; font-size: 13px; line-height: 1.6; }
+    .user-steps { display: grid; gap: 14px; margin: 24px 0 0; padding: 0; list-style: none; }
+    .user-steps li { display: grid; grid-template-columns: 27px 1fr; gap: 10px; align-items: center; color: #e9e8f2; font-size: 12px; }
+    .user-steps span { display: grid; width: 27px; height: 27px; place-items: center; border-radius: 8px; background: rgba(255,255,255,.09); color: #bcaeff; font-weight: 750; }
+    .user-card { padding: 28px; }
+    .form-field { display: flex; flex-direction: column; gap: 7px; margin-bottom: 18px; }
+    .form-field label { color: var(--color-text); font-size: 13px; font-weight: 600; }
+    .form-field input, .form-field select { width: 100%; }
+    .helptext { color: var(--color-text-muted); font-size: 12px; line-height: 1.45; }
+    .helptext ul, .errors { margin: 2px 0 0; padding-left: 18px; }
+    .errors { color: var(--color-danger); font-size: 12px; }
+    .message { margin-bottom: 18px; padding: 12px 14px; border: 1px solid #a7f3d0; border-radius: 6px; background: var(--color-success-bg); color: var(--color-success-text); font-size: 13px; }
+    .credentials { margin-bottom: 22px; padding: 18px; border: 1px solid #f59e0b; border-radius: 6px; background: #fffbeb; color: #78350f; }
+    .credentials code { display: block; margin-top: 5px; padding: 9px; border-radius: 4px; background: #fff; color: #111827; overflow-wrap: anywhere; user-select: all; }
+    .credentials-warning { margin: 12px 0 0; font-size: 12px; font-weight: 600; }
+    .create-user-button { width: 100%; margin-top: 4px; }
+    @media (max-width: 760px) { .user-header { align-items: flex-start; flex-direction: column; } .user-layout { grid-template-columns: 1fr; } .user-guide { display: none; } }
+</style>
+{% endblock %}
+
+{% block content %}
+<section class="user-page">
+    <header class="user-header">
+        <div><span class="user-kicker">ADMINISTRATION</span><h1 class="page-heading">Créer un utilisateur</h1><p>Ajoutez un compte et attribuez-lui un rôle.</p></div>
+        <a class="security-link" href="{% url 'security_users' %}">Voir la sécurité</a>
+    </header>
+    <div class="user-layout">
+    <aside class="user-guide card-surface">
+        <span class="user-guide-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="9" cy="8" r="4"/><path d="M2.5 21a6.5 6.5 0 0 1 13 0M19 8v6m-3-3h6"/></svg></span>
+        <h2>Nouvel accès</h2>
+        <p>Créez un compte sécurisé pour un membre de votre équipe commerciale.</p>
+        <ol class="user-steps">
+            <li><span>1</span>Renseignez son identité</li>
+            <li><span>2</span>Attribuez le rôle adapté</li>
+            <li><span>3</span>Transmettez les accès temporaires</li>
+        </ol>
+    </aside>
+    <div class="user-card card-surface">
+        {% if credentials %}
+        <section class="credentials" aria-live="polite">
+            <strong>Compte créé — affichage unique</strong>
+            <p>Identifiant <code>{{ credentials.username }}</code></p>
+            <p>Mot de passe temporaire <code>{{ credentials.temporary_password }}</code></p>
+            <p class="credentials-warning">
+                Copiez ces informations maintenant. Elles ne seront plus consultables après avoir quitté cette page.
+                Le mot de passe expire à {{ credentials.expires_at|date:"H:i" }} et devra être remplacé à la première connexion.
+            </p>
+        </section>
+        {% endif %}
+        {% for message in messages %}<p class="message">{{ message }}</p>{% endfor %}
+        <form method="post" novalidate>
+            {% csrf_token %}
+            {% for field in form %}
+                <div class="form-field">
+                    <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+                    {{ field }}
+                    {% if field.help_text %}<small class="helptext">{{ field.help_text }}</small>{% endif %}
+                    {% if field.errors %}<ul class="errors">{% for error in field.errors %}<li>{{ error }}</li>{% endfor %}</ul>{% endif %}
+                </div>
+            {% endfor %}
+            <button class="create-user-button" type="submit">Créer l'utilisateur et générer ses accès</button>
+        </form>
+    </div>
+    </div>
+</section>
+{% endblock %}

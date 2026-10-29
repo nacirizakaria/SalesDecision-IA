@@ -1,0 +1,119 @@
+{% extends "base.html" %}
+
+{% block title %}Sécurité{% endblock %}
+{% block breadcrumb %}Sécurité{% endblock %}
+
+{% block extra_css %}
+<style>
+    .security-header { display: flex; align-items: flex-end; justify-content: space-between; gap: 24px; margin-bottom: 22px; }
+    .security-kicker { display: block; margin-bottom: 7px; color: var(--color-primary); font-size: 10px; font-weight: 800; letter-spacing: .14em; }
+    .security-header p { margin: 6px 0 0; color: var(--color-text-muted); }
+    .security-header a { display: inline-flex; min-height: 40px; padding: 9px 14px; align-items: center; border-radius: 9px; background: var(--color-primary); color: #fff; font-weight: 700; }
+    .security-summary { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; margin-bottom: 18px; }
+    .security-stat { padding: 17px; }
+    .security-stat small { display: block; color: var(--color-text-muted); }
+    .security-stat strong { display: block; margin-top: 7px; font-size: 24px; }
+    .security-note { margin-bottom: 18px; padding: 14px 16px; border: 1px solid #dcd5fa; border-radius: 11px; background: #f4f1ff; color: #4b426a; font-size: 12px; }
+    .security-note strong { color: #30274d; }
+    .security-grid { display: grid; grid-template-columns: minmax(0, 1fr) 310px; gap: 18px; align-items: start; }
+    .security-table-card { overflow: hidden; }
+    .security-table-scroll { overflow-x: auto; }
+    .security-table { width: 100%; min-width: 900px; border-collapse: collapse; }
+    .security-table th { padding: 11px 13px; border-bottom: 1px solid var(--color-border); background: #f8f8fb; color: var(--color-text-muted); font-size: 10px; text-align: left; text-transform: uppercase; }
+    .security-table td { padding: 13px; border-bottom: 1px solid #ececf2; font-size: 12px; vertical-align: middle; }
+    .security-table tr:last-child td { border-bottom: 0; }
+    .identity { display: flex; align-items: center; gap: 10px; }
+    .identity-avatar { display: grid; width: 34px; height: 34px; flex: none; place-items: center; border-radius: 10px; background: #ebe7ff; color: var(--color-primary); font-weight: 800; }
+    .identity strong, .identity small { display: block; }
+    .identity small { color: var(--color-text-muted); }
+    .status { display: inline-flex; padding: 4px 8px; border-radius: 999px; font-size: 10px; font-weight: 750; }
+    .status.temporary { background: #fff5d8; color: #8a5a00; }
+    .status.expired { background: #fde9e7; color: #a33b32; }
+    .status.changed { background: #e5f7f2; color: #087c6e; }
+    .status.standard { background: #eceef4; color: #5e6272; }
+    .account-state { color: #087c6e; font-weight: 700; }
+    .account-state.inactive { color: #a33b32; }
+    .audit-card { padding: 19px; }
+    .audit-card h2 { margin: 0 0 15px; font-size: 16px; }
+    .audit-list { display: grid; gap: 12px; margin: 0; padding: 0; list-style: none; }
+    .audit-list li { padding-bottom: 12px; border-bottom: 1px solid #ececf2; }
+    .audit-list li:last-child { padding-bottom: 0; border-bottom: 0; }
+    .audit-list strong, .audit-list small { display: block; }
+    .audit-list small { margin-top: 3px; color: var(--color-text-muted); font-size: 10px; }
+    .security-message { margin: 0 0 14px; padding: 11px 13px; border: 1px solid #bce6d9; border-radius: 9px; background: #edf9f5; color: #087c6e; }
+    .delete-account-button { min-height: 32px !important; padding: 5px 9px !important; border: 1px solid #f0c5bd !important; border-radius: 7px !important; background: #fff !important; color: #a43e32 !important; font-size: 10px !important; box-shadow: none !important; }
+    .delete-account-button:hover { background: #fff2ef !important; }
+    .protected-account { color: var(--color-text-muted); font-size: 10px; }
+    @media (max-width: 1000px) { .security-grid { grid-template-columns: 1fr; } .security-summary { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 600px) { .security-header { align-items: flex-start; flex-direction: column; } .security-summary { grid-template-columns: 1fr; } }
+</style>
+{% endblock %}
+
+{% block content %}
+<header class="security-header">
+    <div>
+        <span class="security-kicker">ADMINISTRATION</span>
+        <h1 class="page-heading">Sécurité des comptes</h1>
+        <p>Suivez les accès et l’état de sécurité de chaque utilisateur.</p>
+    </div>
+    <a href="{% url 'create_user' %}">Créer un utilisateur</a>
+</header>
+
+{% for message in messages %}<p class="security-message">{{ message }}</p>{% endfor %}
+
+<section class="security-summary" aria-label="Résumé des comptes">
+    <article class="security-stat card-surface"><small>Comptes</small><strong>{{ security_rows|length }}</strong></article>
+    <article class="security-stat card-surface"><small>Comptes actifs</small><strong>{{ active_count }}</strong></article>
+    <article class="security-stat card-surface"><small>Mots de passe temporaires</small><strong>{{ temporary_count }}</strong></article>
+    <article class="security-stat card-surface"><small>Accès expirés</small><strong>{{ expired_count }}</strong></article>
+</section>
+
+<p class="security-note"><strong>Protection des mots de passe :</strong> le mot de passe temporaire apparaît une seule fois lors de la création. Il est ensuite conservé sous forme de hash non réversible et ne peut jamais être affiché.</p>
+
+<div class="security-grid">
+    <section class="security-table-card card-surface" aria-label="Comptes utilisateurs">
+        <div class="security-table-scroll">
+            <table class="security-table">
+                <thead><tr><th>Utilisateur</th><th>ID</th><th>Rôle</th><th>Compte</th><th>Mot de passe</th><th>Expiration</th><th>Dernière connexion</th><th>Actions</th></tr></thead>
+                <tbody>
+                {% for row in security_rows %}
+                    <tr>
+                        <td><span class="identity"><span class="identity-avatar">{{ row.user.first_name|default:row.user.username|slice:":1"|upper }}</span><span><strong>{{ row.user.first_name|default:"—" }} {{ row.user.last_name }}</strong><small>{{ row.user.email|default:"Aucun e-mail" }}</small></span></span></td>
+                        <td><strong>{{ row.user.username }}</strong><br><small>#{{ row.user.pk }}</small></td>
+                        <td>{{ row.role }}</td>
+                        <td><span class="account-state {% if not row.user.is_active %}inactive{% endif %}">{% if row.user.is_active %}Actif{% else %}Désactivé{% endif %}</span></td>
+                        <td>
+                            {% if row.password_status == "temporary" %}<span class="status temporary">Temporaire actif</span>
+                            {% elif row.password_status == "expired" %}<span class="status expired">Temporaire expiré</span>
+                            {% elif row.password_status == "changed" %}<span class="status changed">Remplacé</span>
+                            {% else %}<span class="status standard">Standard</span>{% endif %}
+                        </td>
+                        <td>{% if row.provisioning and row.provisioning.must_change_password %}{{ row.provisioning.temporary_password_expires_at|date:"d/m/Y H:i" }}{% else %}—{% endif %}</td>
+                        <td>{{ row.user.last_login|date:"d/m/Y H:i"|default:"Jamais" }}</td>
+                        <td>
+                            {% if not row.user.is_staff and not row.user.is_superuser %}
+                                <form method="post" action="{% url 'delete_user_account' row.user.pk %}" onsubmit="return confirm('Supprimer définitivement le compte de {{ row.user.get_full_name|default:row.user.username|escapejs }} ?');">
+                                    {% csrf_token %}
+                                    <button class="delete-account-button" type="submit">Supprimer</button>
+                                </form>
+                            {% else %}<span class="protected-account">Protégé</span>{% endif %}
+                        </td>
+                    </tr>
+                {% empty %}
+                    <tr><td colspan="8">Aucun utilisateur enregistré.</td></tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <aside class="audit-card card-surface">
+        <h2>Activité récente</h2>
+        <ul class="audit-list">
+            {% for audit in recent_audits %}
+                <li><strong>{{ audit.get_action_display }} · {{ audit.target_user.get_full_name|default:audit.target_user.username }}</strong><small>Par {{ audit.actor.username|default:"Système" }} · {{ audit.created_at|date:"d/m/Y H:i" }}</small></li>
+            {% empty %}<li>Aucune activité récente.</li>{% endfor %}
+        </ul>
+    </aside>
+</div>
+{% endblock %}

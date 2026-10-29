@@ -1,0 +1,7 @@
+date,client,produit,quantite,prix_unitaire,cout_unitaire,region
+2026-01-15,Client A,Ordinateur portable,3,8500,6500,Casablanca
+2026-01-20,Client B,Souris sans fil,10,150,90,Rabat
+2026-02-05,Client A,Ordinateur portable,5,8500,6500,Casablanca
+2026-02-10,Client C,Clavier mecanique,7,450,280,Marrakech
+2026-03-01,Client B,Ordinateur portable,4,8700,6700,Rabat
+2026-03-15,Client A,Souris sans fil,15,150,90,Casablanca

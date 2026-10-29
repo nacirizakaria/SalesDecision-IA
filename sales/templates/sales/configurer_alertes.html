@@ -1,0 +1,167 @@
+{% extends "base.html" %}
+
+{% block title %}Configuration des alertes{% endblock %}
+{% block breadcrumb %}Alertes{% endblock %}
+
+{% block extra_css %}
+<style>
+    .alert-settings { max-width: 1120px; }
+    .settings-header { display: flex; align-items: flex-end; justify-content: space-between; gap: 24px; margin-bottom: 20px; }
+    .settings-header h1 { margin: 0; }
+    .settings-header p { max-width: 680px; margin: 7px 0 0; color: #475569; font-size: 14px; line-height: 1.5; }
+    .settings-guide { display: grid; grid-template-columns: 36px 1fr; gap: 12px; margin-bottom: 18px; padding: 16px 18px; border: 1px solid #bfdbfe; border-radius: 10px; background: #eff6ff; }
+    .settings-guide strong { display: block; margin-bottom: 3px; color: #1e3a8a; font-size: 14px; }
+    .settings-guide p { margin: 0; color: #334155; font-size: 13px; line-height: 1.45; }
+    .guide-icon { display: grid; width: 36px; height: 36px; place-items: center; border-radius: 9px; background: #dbeafe; color: #1d4ed8; font-weight: 750; }
+    .preset-bar { display: flex; align-items: center; flex-wrap: wrap; gap: 9px; margin: 0 0 18px; padding: 12px 14px; border: 1px solid var(--color-border); border-radius: 10px; background: #fff; }
+    .preset-bar span { margin-right: 4px; color: #475569; font-size: 13px; font-weight: 600; }
+    .preset-button { padding: 7px 11px; border: 1px solid #cbd5e1; border-radius: 6px; background: #fff; color: #334155; font-size: 12px; font-weight: 650; cursor: pointer; }
+    .preset-button:hover { border-color: #93c5fd; background: #eff6ff; color: #1d4ed8; }
+    .settings-message { margin-bottom: 16px; padding: 12px; border: 1px solid #a7f3d0; border-radius: 8px; background: #ecfdf5; color: #047857; }
+    .alert-rules { display: grid; gap: 14px; }
+    .alert-rule { padding: 20px; border: 1px solid var(--color-border); border-radius: 10px; background: #fff; box-shadow: var(--shadow-sm); }
+    .rule-heading { display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; margin-bottom: 17px; }
+    .rule-heading h2 { margin: 0; color: #0f172a; font-size: 16px; }
+    .rule-heading p { margin: 5px 0 0; color: #475569; font-size: 13px; line-height: 1.45; }
+    .rule-status { display: inline-flex; flex: 0 0 auto; align-items: center; gap: 6px; padding: 5px 8px; border-radius: 999px; background: #ecfdf5; color: #047857; font-size: 11px; font-weight: 700; }
+    .rule-status.waiting { background: #fef3c7; color: #92400e; }
+    .rule-fields { display: grid; grid-template-columns: 1.3fr .75fr .75fr 1fr auto; gap: 12px; align-items: end; }
+    .rule-fields label { display: block; margin-bottom: 6px; color: #475569; font-size: 12px; font-weight: 650; }
+    .rule-fields input, .rule-fields select { width: 100%; }
+    .rule-fields .toggle-field { width: 66px; }
+    .rule-fields .toggle-field input { width: auto; min-height: auto; }
+    .field-help { display: block; margin-top: 5px; color: #64748b; font-size: 11px; line-height: 1.35; }
+    .field-error { display: block; margin-top: 5px; color: #b91c1c; font-size: 11px; }
+    .rule-bottom { display: flex; align-items: center; flex-wrap: wrap; gap: 10px 18px; margin-top: 16px; padding-top: 14px; border-top: 1px solid #eef2f7; }
+    .rule-current { color: #334155; font-size: 12px; }
+    .rule-current strong { color: #0f172a; }
+    .rule-simulation { display: flex; align-items: center; gap: 7px; margin-left: auto; color: #475569; font-size: 12px; }
+    .simulation-input { width: 76px !important; min-height: 34px; padding: 6px 8px; font-variant-numeric: tabular-nums; }
+    .simulation-result { padding: 5px 8px; border-radius: 999px; background: #f1f5f9; color: #334155; font-size: 11px; font-weight: 700; }
+    .simulation-result.orange { background: #fffbeb; color: #92400e; }
+    .simulation-result.rouge { background: #fef2f2; color: #b91c1c; }
+    .rule-audit { width: 100%; color: #64748b; font-size: 11px; }
+    .save-bar { position: sticky; bottom: 12px; display: flex; align-items: center; justify-content: space-between; gap: 16px; margin-top: 18px; padding: 13px 16px; border: 1px solid #bfdbfe; border-radius: 10px; background: rgba(255,255,255,.96); box-shadow: 0 10px 24px rgba(15,23,42,.12); backdrop-filter: blur(8px); }
+    .save-bar p { margin: 0; color: #475569; font-size: 12px; }
+    .settings-history { margin-top: 18px; padding: 18px 20px; border: 1px solid var(--color-border); border-radius: 10px; background: #fff; box-shadow: var(--shadow-sm); }
+    .settings-history h2 { margin: 0 0 12px; font-size: 15px; }
+    .history-list { display: grid; gap: 8px; }
+    .history-entry { display: flex; justify-content: space-between; gap: 14px; padding: 10px 0; border-top: 1px solid #eef2f7; color: #334155; font-size: 12px; }
+    .history-entry strong { color: #0f172a; }
+    .history-entry time { color: #64748b; white-space: nowrap; }
+
+    /* Compact executive rule card */
+    .alert-rules { gap: 18px; }
+    .alert-rule { position: relative; padding: 25px 28px; border-color: #e5eaf1; border-radius: 17px; }
+    .alert-rule::before { position: absolute; inset: 22px auto 22px 0; width: 4px; border-radius: 0 6px 6px 0; background: #2367e8; content: ""; }
+    .rule-heading { align-items: center; margin-bottom: 22px; padding-bottom: 18px; border-bottom: 1px solid #edf0f4; }
+    .rule-heading h2 { font-size: 18px; font-weight: 750; letter-spacing: -.025em; }
+    .rule-heading p { margin-top: 6px; color: #667085; }
+    .rule-status { padding: 7px 11px; background: #eaf9f3; color: #07835f; }
+    .rule-status.waiting { background: #fff7e6; color: #a15c07; }
+    .rule-fields { grid-template-columns: minmax(250px, 1.3fr) minmax(145px, .72fr) minmax(145px, .72fr) minmax(190px, 1fr) 92px; gap: 14px; align-items: start; }
+    .rule-fields > div { min-width: 0; }
+    .rule-fields label, .toggle-label { display: block; min-height: 17px; margin-bottom: 7px; color: #344054; font-size: 11px; font-weight: 750; line-height: 17px; letter-spacing: .025em; }
+    .rule-fields input, .rule-fields select { min-height: 48px; border-color: #dfe4ec; border-radius: 12px; background: #fff; }
+    .rule-fields input:focus, .rule-fields select:focus { border-color: #84adff; box-shadow: 0 0 0 4px rgba(35,103,232,.09); }
+    .rule-fields > div:nth-child(2) input { border-color: #f4cf92; background: #fffdf8; color: #a15c07; font-weight: 700; }
+    .rule-fields > div:nth-child(3) input { border-color: #f0b6bd; background: #fffafb; color: #b42334; font-weight: 700; }
+    .field-help { min-height: 29px; margin-top: 7px; color: #8490a3; }
+    .rule-fields .toggle-field { display: flex; width: auto; flex-direction: column; align-self: start; }
+    .toggle-label { display: block; }
+    .toggle-control { display: flex !important; min-height: 48px !important; align-items: center; gap: 9px; margin: 0 !important; line-height: normal !important; cursor: pointer; }
+    .toggle-control input { position: absolute; width: 1px !important; height: 1px; min-height: 1px !important; opacity: 0; }
+    .toggle-slider { position: relative; width: 42px; height: 24px; flex: 0 0 42px; border-radius: 999px; background: #cbd5e1; transition: .2s ease; }
+    .toggle-slider::after { position: absolute; top: 3px; left: 3px; width: 18px; height: 18px; border-radius: 50%; background: #fff; box-shadow: 0 2px 5px rgba(15,23,42,.22); content: ""; transition: transform .2s ease; }
+    .toggle-control input:checked + .toggle-slider { background: #2367e8; }
+    .toggle-control input:checked + .toggle-slider::after { transform: translateX(18px); }
+    .toggle-control input:focus-visible + .toggle-slider { outline: 3px solid rgba(35,103,232,.18); outline-offset: 2px; }
+    .toggle-control > span:last-child { color: #475467; font-size: 12px; font-weight: 650; }
+    .rule-bottom { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 14px 24px; margin-top: 20px; padding-top: 18px; }
+    .rule-current { align-self: center; color: #475467; }
+    .rule-current strong { color: #182033; font-size: 14px; }
+    .rule-simulation { margin: 0; padding: 7px 8px 7px 12px; border: 1px solid #e5eaf1; border-radius: 12px; background: #f8fafc; }
+    .simulation-input { width: 78px !important; min-height: 34px !important; border-radius: 8px !important; background: #fff !important; }
+    .simulation-result { min-width: 58px; padding: 6px 9px; text-align: center; }
+    .rule-audit { grid-column: 1 / -1; padding-top: 2px; color: #98a2b3; }
+    @media (max-width: 900px) { .rule-fields { grid-template-columns: repeat(2, minmax(0, 1fr)); } .rule-fields .toggle-field { width: auto; } .rule-bottom { align-items: flex-start; } .rule-simulation { margin-left: 0; } }
+    @media (max-width: 620px) { .settings-header { align-items: flex-start; flex-direction: column; } .rule-fields { grid-template-columns: 1fr; } .rule-heading { align-items: flex-start; flex-direction: column; } .rule-bottom { grid-template-columns: 1fr; } .rule-simulation { justify-content: space-between; } .rule-audit { grid-column: 1; } .save-bar { align-items: flex-start; flex-direction: column; } }
+</style>
+{% endblock %}
+
+{% block content %}
+<section class="alert-settings">
+    <header class="settings-header">
+        <div><h1 class="page-heading">Configuration des alertes</h1><p>Définissez les baisses inhabituelles par rapport à votre activité habituelle. Les seuils sont des pourcentages négatifs.</p></div>
+    </header>
+
+    <section class="settings-guide" aria-label="Fonctionnement des alertes">
+        <span class="guide-icon">i</span>
+        <div><strong>Comment lire les seuils ?</strong><p>Avec un seuil orange à −5 % et rouge à −15 %, une baisse de −6 % est orange ; une baisse de −20 % est rouge. La moyenne des trois mois est utilisée lorsqu’elle est disponible, sinon le mois précédent sert de référence.</p></div>
+    </section>
+
+    <div class="preset-bar" aria-label="Préréglages"><span>Préréglages :</span><button class="preset-button" type="button" data-orange="-3" data-red="-8">Prudent</button><button class="preset-button" type="button" data-orange="-5" data-red="-15">Standard</button><button class="preset-button" type="button" data-orange="-10" data-red="-25">Tolérant</button></div>
+    {% for message in messages %}<p class="settings-message">{{ message }}</p>{% endfor %}
+
+    <form method="post" novalidate>
+        {% csrf_token %}{{ formset.management_form }}
+        <div class="alert-rules">
+            {% for form in formset %}
+                {{ form.id }}{{ form.nom_kpi.as_hidden }}{{ form.description.as_hidden }}{{ form.type_comparaison }}
+                <article class="alert-rule" data-alert-rule>
+                    <header class="rule-heading">
+                        <div><h2>{{ form.nom_kpi.value }}</h2><p>{{ form.description.value|default:"Règle de performance configurable." }}</p></div>
+                        {% if form.etat_alerte.evaluee %}<span class="rule-status">● Évaluée</span>{% else %}<span class="rule-status waiting">● Données insuffisantes</span>{% endif %}
+                    </header>
+                    <div class="rule-fields">
+                        <div><label for="{{ form.reference_comparaison.id_for_label }}">Référence</label>{{ form.reference_comparaison }}<span class="field-help">La comparaison utilise cette base historique.</span></div>
+                        <div><label for="{{ form.seuil_orange.id_for_label }}">Baisse orange (%)</label>{{ form.seuil_orange }}{% for error in form.seuil_orange.errors %}<span class="field-error">{{ error }}</span>{% endfor %}</div>
+                        <div><label for="{{ form.seuil_rouge.id_for_label }}">Baisse rouge (%)</label>{{ form.seuil_rouge }}<span class="field-help"></span>{% for error in form.seuil_rouge.errors %}<span class="field-error">{{ error }}</span>{% endfor %}</div>
+                        {% if form.instance.code_alerte == 'baisse_ca' %}<div><label for="{{ form.seuil_minimum_absolu.id_for_label }}">Plancher absolu (DH)</label>{{ form.seuil_minimum_absolu }}<span class="field-help">Optionnel : limite propre à votre activité.</span></div>{% endif %}
+                        <div class="toggle-field">
+                            <span class="toggle-label">Statut</span>
+                            <label class="toggle-control" for="{{ form.actif.id_for_label }}">
+                                {{ form.actif }}<span class="toggle-slider" aria-hidden="true"></span><span>Active</span>
+                            </label>
+                        </div>
+                    </div>
+                    <footer class="rule-bottom">
+                        {% if form.etat_alerte.evaluee %}<span class="rule-current">État actuel : <strong>{{ form.etat_alerte.variation|floatformat:2 }} %</strong> vs. {{ form.etat_alerte.libelle_reference }}.</span>{% else %}<span class="rule-current">Ajoutez au moins deux mois de données pour activer cette évaluation.</span>{% endif %}
+                        <label class="rule-simulation">Simuler une baisse <input class="simulation-input" type="number" value="-6" step="0.1" aria-label="Baisse simulée"><span class="simulation-result">Orange</span></label>
+                        <span class="rule-audit">Dernière modification : {% if form.instance.modifie_par %}{{ form.instance.modifie_par.username }}{% else %}configuration initiale{% endif %}, {{ form.instance.updated_at|date:"d/m/Y H:i" }}.</span>
+                    </footer>
+                </article>
+            {% endfor %}
+        </div>
+        <footer class="save-bar"><p>Les modifications sont appliquées au dashboard après enregistrement.</p><button type="submit">Enregistrer les seuils</button></footer>
+    </form>
+    <section class="settings-history" aria-labelledby="historyTitle">
+        <h2 id="historyTitle">Historique des modifications</h2>
+        <div class="history-list">{% for entree in historique_configurations %}<div class="history-entry"><span><strong>{{ entree.seuil.nom_kpi }}</strong> · Orange {{ entree.seuil_orange|floatformat:2 }} % · Rouge {{ entree.seuil_rouge|floatformat:2 }} % · {% if entree.actif %}active{% else %}désactivée{% endif %}{% if entree.modifie_par %} · par {{ entree.modifie_par.username }}{% endif %}</span><time datetime="{{ entree.created_at|date:'c' }}">{{ entree.created_at|date:"d/m/Y H:i" }}</time></div>{% empty %}<p class="rule-current">Aucune modification enregistrée pour le moment.</p>{% endfor %}</div>
+    </section>
+</section>
+<script>
+    const updateSimulation = (card) => {
+        const orange = Number(card.querySelector('[name$="-seuil_orange"]').value);
+        const red = Number(card.querySelector('[name$="-seuil_rouge"]').value);
+        const value = Number(card.querySelector('.simulation-input').value);
+        const result = card.querySelector('.simulation-result');
+        let level = 'Vert';
+        if (!Number.isNaN(red) && value <= red) level = 'Rouge';
+        else if (!Number.isNaN(orange) && value <= orange) level = 'Orange';
+        result.textContent = level;
+        result.className = `simulation-result ${level.toLowerCase()}`;
+    };
+    document.querySelectorAll('[data-alert-rule]').forEach((card) => {
+        card.querySelectorAll('input').forEach((input) => input.addEventListener('input', () => updateSimulation(card)));
+        updateSimulation(card);
+    });
+    document.querySelectorAll('.preset-button').forEach((button) => button.addEventListener('click', () => {
+        document.querySelectorAll('[data-alert-rule]').forEach((card) => {
+            card.querySelector('[name$="-seuil_orange"]').value = button.dataset.orange;
+            card.querySelector('[name$="-seuil_rouge"]').value = button.dataset.red;
+            updateSimulation(card);
+        });
+    }));
+</script>
+{% endblock %}

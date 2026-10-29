@@ -1,0 +1,5 @@
+date,client,produit,quantite,prix_unitaire,cout_unitaire,region
+2032-01-15,Client test orange,Produit test,1,5000.00,3000.00,Rabat
+2032-02-15,Client test orange,Produit test,1,5000.00,3000.00,Rabat
+2032-03-15,Client test orange,Produit test,1,5000.00,3000.00,Rabat
+2032-04-15,Client test orange,Produit test,1,4700.00,2820.00,Rabat

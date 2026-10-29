@@ -1,0 +1,78 @@
+{% extends "base.html" %}
+{% load sales_format %}
+
+{% block title %}Ventes importées{% endblock %}
+{% block breadcrumb %}Liste des ventes{% endblock %}
+
+{% block extra_css %}
+<style>
+    .sales-header { display: flex; align-items: flex-end; justify-content: space-between; gap: 28px; margin-bottom: 36px; }
+    .sales-kicker { display: block; margin-bottom: 10px; color: #3153d9; font-size: 12px; font-weight: 750; letter-spacing: .12em; text-transform: uppercase; }
+    .sales-header .page-heading { margin: 0; font-size: 30px; line-height: 1.18; letter-spacing: -.035em; }
+    .sales-header p { margin: 8px 0 0; color: #64748b; font-size: 14px; line-height: 1.5; }
+    .sales-actions { display: flex; flex-wrap: wrap; gap: 15px; }
+    .sales-actions form { margin: 0; }
+    .secondary-button { display: inline-flex; align-items: center; justify-content: center; min-height: 42px; padding: 9px 16px; border: 1px solid #dce2eb; border-radius: 10px; background: #fff; color: #172033; font-size: 14px; font-weight: 650; box-shadow: none; }
+    .secondary-button:hover { border-color: #cbd5e1; background: #f8fafc; color: var(--color-text); }
+    .data-grid-card { overflow: hidden; }
+    .data-grid-scroll { overflow-x: auto; }
+    .data-grid { width: 100%; min-width: 980px; border-collapse: collapse; background: #fff; }
+    .data-grid th { padding: 12px 14px; border-bottom: 1px solid #dce2eb; background: #fff; color: #667085; font-size: 11px; font-weight: 700; letter-spacing: .055em; text-align: left; text-transform: uppercase; white-space: nowrap; }
+    .data-grid td { padding: 13px 14px; border-bottom: 1px solid #e5e9f0; color: #172033; font-size: 13px; line-height: 1.45; vertical-align: middle; white-space: normal; }
+    .data-grid tbody tr { transition: background .16s ease; }
+    .data-grid tbody tr:hover { background: #f8fafc; }
+    .data-grid tbody tr:last-child td { border-bottom: 0; }
+    .data-grid .numeric-cell { text-align: right; font-variant-numeric: tabular-nums; }
+    .client-name { font-weight: 700; }
+    .product-name { font-weight: 400; }
+    .region-tag { display: inline-flex; padding: 5px 9px; border-radius: 8px; background: #eef1fc; color: #2441a8; font-size: 12px; font-weight: 650; }
+    .margin-value { color: #172033 !important; font-weight: 600; }
+    .danger-button { border-color: #fee2e2; background: #fff; color: var(--color-danger); }
+    .danger-button:hover { border-color: #fecaca; background: #fef2f2; color: #b91c1c; }
+    .empty-state { margin-top: 24px; padding: 48px 24px; text-align: center; }
+    .empty-state h2 { margin: 0 0 6px; font-size: 16px; }
+    .empty-state p { margin: 0; color: var(--color-text-muted); }
+    @media (max-width: 700px) {
+        .sales-header { align-items: flex-start; flex-direction: column; }
+        .sales-header .page-heading { font-size: 26px; }
+        .sales-header p { font-size: 14px; }
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="sales-header">
+    <div>
+        <span class="sales-kicker">Analyse commerciale</span>
+        <h1 class="page-heading">Ventes importées</h1>
+        <p>Consultez l'ensemble des transactions qui alimentent vos indicateurs.</p>
+    </div>
+    {% if perms.sales.import_sales %}
+        <div class="sales-actions">
+            <a class="secondary-button" href="{% url 'import_ventes' %}">Importer un fichier</a>
+            {% if ventes %}<form method="post" action="{% url 'supprimer_ventes' %}">{% csrf_token %}<button class="secondary-button danger-button" type="submit" onclick="return confirm('Voulez-vous vraiment supprimer toutes les ventes ?');">Supprimer toutes les ventes</button></form>{% endif %}
+        </div>
+    {% endif %}
+</div>
+
+{% if ventes %}
+    <section class="data-grid-card card-surface" aria-label="Tableau des ventes">
+        <div class="data-grid-scroll" tabindex="0" aria-label="Tableau des ventes, faites défiler horizontalement si nécessaire">
+            <table class="data-grid">
+                <thead><tr>
+                    <th>Date</th><th>Client</th><th>Produit</th><th class="numeric-cell">Quantité</th>
+                    <th class="numeric-cell">Prix unitaire</th><th class="numeric-cell">Coût unitaire</th><th class="numeric-cell">CA</th><th class="numeric-cell">Marge</th><th>Région</th>
+                </tr></thead>
+                <tbody>{% for vente in ventes %}<tr>
+                    <td>{{ vente.date|default:"-" }}</td><td class="client-name">{{ vente.client|default:"-" }}</td>
+                    <td class="product-name">{{ vente.produit|default:"-" }}</td><td class="numeric-cell">{{ vente.quantite|entier_fr }}</td>
+                    <td class="numeric-cell">{{ vente.prix_unitaire|nombre_fr }} DH</td><td class="numeric-cell">{{ vente.cout_unitaire|nombre_fr }} DH</td>
+                    <td class="numeric-cell">{{ vente.ca|nombre_fr }} DH</td><td class="numeric-cell margin-value">{{ vente.marge|nombre_fr }} DH</td><td><span class="region-tag">{{ vente.region|default:"Non renseignée" }}</span></td>
+                </tr>{% endfor %}</tbody>
+            </table>
+        </div>
+    </section>
+{% else %}
+    <section class="empty-state card-surface"><h2>Aucune vente importée</h2><p>Importez un fichier CSV ou Excel pour commencer vos analyses.</p></section>
+{% endif %}
+{% endblock %}
